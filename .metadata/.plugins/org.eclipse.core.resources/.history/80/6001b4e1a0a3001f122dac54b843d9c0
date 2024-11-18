@@ -1,0 +1,33 @@
+package co.edu.uco.deviuco.usuarios.domain.ubicacion;
+
+import co.edu.uco.deviuco.usuarios.domain.Domain;
+import co.edu.uco.deviuco.usuarios.domain.sede.SedeDomain;
+
+public class UbicacionDomain extends Domain {
+	
+	private String nombre;
+	private SedeDomain sede;
+
+	public UbicacionDomain(final UUID id, final String nombre,final SedeDomain sede) {
+		super(id);
+		setNe(name);
+		setciudad(sede);
+	}
+
+	public final String getNombre() {
+		return nombre;
+	}
+
+	private final void setNombre(String nombre) {
+		this.nombre= nombre;
+	}
+
+	public final Domain getSede{
+		return sede;
+	}
+
+	private final void setSede(SdeaDomain sede) {
+		this.sede  sede;
+	}
+
+}

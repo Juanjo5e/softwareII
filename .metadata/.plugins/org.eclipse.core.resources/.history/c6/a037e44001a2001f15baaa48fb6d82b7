@@ -1,0 +1,75 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.mapper;
+
+import co.edu.uco.deviuco.usuarios.application.primaryports.dto.RetriveTipoIdentificacionDTO;
+import co.edu.uco.deviuco.usuarios.domain.tipoidentificacion.TipoIdentificacionDomain;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import javax.annotation.processing.Generated;
+
+@Generated(
+    value = "org.mapstruct.ap.MappingProcessor",
+    date = "2024-11-13T15:34:29-0500",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.40.0.z20241023-1306, environment: Java 17.0.13 (Eclipse Adoptium)"
+)
+public class TipoIdentificacionDtoMapperImpl implements TipoIdentificacionDtoMapper {
+
+    @Override
+    public TipoIdentificacionDomain dtoToDomain(RetriveTipoIdentificacionDTO dto) {
+        if ( dto == null ) {
+            return null;
+        }
+
+        UUID id = null;
+        String nombre = null;
+
+        id = dto.getId();
+        nombre = dto.getNombre();
+
+        TipoIdentificacionDomain tipoIdentificacionDomain = new TipoIdentificacionDomain( id, nombre );
+
+        return tipoIdentificacionDomain;
+    }
+
+    @Override
+    public RetriveTipoIdentificacionDTO domainToDto(TipoIdentificacionDomain domain) {
+        if ( domain == null ) {
+            return null;
+        }
+
+        RetriveTipoIdentificacionDTO retriveTipoIdentificacionDTO = new RetriveTipoIdentificacionDTO();
+
+        retriveTipoIdentificacionDTO.setId( domain.getId() );
+        retriveTipoIdentificacionDTO.setNombre( domain.getNombre() );
+
+        return retriveTipoIdentificacionDTO;
+    }
+
+    @Override
+    public List<RetriveTipoIdentificacionDTO> domainToDtoCollection(List<TipoIdentificacionDomain> domainCollection) {
+        if ( domainCollection == null ) {
+            return null;
+        }
+
+        List<RetriveTipoIdentificacionDTO> list = new ArrayList<RetriveTipoIdentificacionDTO>( domainCollection.size() );
+        for ( TipoIdentificacionDomain tipoIdentificacionDomain : domainCollection ) {
+            list.add( domainToDto( tipoIdentificacionDomain ) );
+        }
+
+        return list;
+    }
+
+    @Override
+    public List<TipoIdentificacionDomain> dtoToDomainCollection(List<RetriveTipoIdentificacionDTO> entityCollection) {
+        if ( entityCollection == null ) {
+            return null;
+        }
+
+        List<TipoIdentificacionDomain> list = new ArrayList<TipoIdentificacionDomain>( entityCollection.size() );
+        for ( RetriveTipoIdentificacionDTO retriveTipoIdentificacionDTO : entityCollection ) {
+            list.add( dtoToDomain( retriveTipoIdentificacionDTO ) );
+        }
+
+        return list;
+    }
+}

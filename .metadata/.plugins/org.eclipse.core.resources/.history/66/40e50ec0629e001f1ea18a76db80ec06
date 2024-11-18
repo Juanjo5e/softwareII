@@ -1,8 +1,0 @@
-package co.edu.uco.deviuco.usuarios.application.usecase.afiliado;
-
-import co.edu.uco.deviuco.usuarios.application.usecase.RulesValidator;
-
-public interface RegisterNewAfiliadoRulesValidator extends RulesValidator<AfiliadoDomain> {
-	
-
-}

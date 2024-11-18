@@ -1,2 +1,210 @@
 1731255250009	Rename resource 'deviucopay-69f54-firebase-adminsdk-hf3s0-77b49002bd.json'
 1731255272248	Delete element
+1731264333113	Delete element
+1731264373465	Rename resource 'Dokerfile'
+1731275221422	Delete element
+1731275279861	Delete element
+1731275300619	Delete element
+1731275427752	Delete element
+1731275507992	Delete element
+1731275518008	Delete element
+1731275550899	Delete element
+1731275602082	Delete element
+1731275676611	Delete element
+1731276288820	Delete element
+1731276290706	Delete element
+1731276291668	Delete element
+1731276307480	Delete element
+1731276308405	Delete element
+1731276314358	Delete element
+1731276316447	Delete element
+1731276334489	Delete element
+1731276350026	Delete element
+1731276352681	Delete element
+1731276354772	Delete element
+1731276359763	Delete element
+1731276361997	Delete element
+1731276364081	Delete element
+1731276367339	Delete element
+1731276371926	Delete element
+1731276375455	Delete element
+1731276377925	Delete element
+1731276380583	Delete element
+1731276382788	Delete element
+1731276384033	Delete element
+1731276386126	Delete element
+1731276389496	Delete element
+1731276392793	Delete element
+1731276395871	Delete element
+1731276400921	Delete element
+1731276403696	Delete element
+1731276404884	Delete element
+1731276406689	Delete element
+1731276408451	Delete element
+1731276410140	Delete element
+1731276413419	Delete element
+1731276415886	Delete element
+1731276418301	Delete element
+1731276425221	Delete element
+1731287875810	Delete element
+1731287965029	Delete element
+1731287967002	Delete element
+1731294568503	Delete element
+1731294575964	Delete element
+1731294579001	Delete element
+1731294581063	Delete element
+1731294583190	Delete element
+1731294589271	Delete element
+1731294607114	Delete element
+1731294617031	Delete element
+1731294619333	Delete element
+1731294647121	Delete element
+1731295331618	Delete element
+1731295405484	Delete element
+1731295406730	Delete element
+1731295407844	Delete element
+1731295408866	Delete element
+1731295504990	Delete element
+1731295521699	Delete element
+1731295538491	Delete element
+1731296830338	Delete element
+1731298442746	Delete element
+1731298461558	Delete element
+1731469900952	Delete element
+1731469914405	Delete element
+1731530314665	Delete element
+1731532320108	Delete element
+1731532352645	Delete element
+1731532453149	Delete element
+1731533016941	Delete element
+1731536324435	Delete element
+1731704307545	Delete element
+1731704372532	Move compilation unit
+1731704375673	Move compilation unit
+1731704379321	Move compilation unit
+1731704387915	Delete element
+1731704393087	Move compilation unit
+1731705896956	Delete element
+1731705900626	Delete element
+1731707093454	Delete element
+1731707614634	Rename type 'TipoSedeDTO'
+1731708923887	Rename type 'CiudadDTO'
+1731708938136	Rename package 'co.edu.uco.deviuco.usuarios.application.primaryports.interactor.ciudad'
+1731708953393	Rename package 'co.edu.uco.deviuco.usuarios.application.primaryports.interactor.ciudad.impl'
+1731708965884	Rename type 'RetrieveCiuidadInteractor'
+1731709006372	Rename package 'co.edu.uco.deviuco.usuarios.domain.ciudad'
+1731709018496	Rename type 'CiudadDomain'
+1731713659201	Rename type 'RetrieveStateDTO'
+1731713721787	Delete element
+1731713798314	Rename package 'co.edu.uco.deviuco.usuarios.application.primaryports.interactor.state'
+1731713832269	Rename type 'RetrieveStateInteractor'
+1731713958315	Delete element
+1731714088815	Rename type 'CountryDTO'
+1731714237816	Rename type 'RetrieveStateDTO'
+1731714278521	Rename type 'RetrieveStateInteractorImpl'
+1731714419456	Delete element
+1731714422353	Delete element
+1731714436414	Delete element
+1731714914964	Move compilation unit
+1731714917864	Copy compilation unit
+1731714921082	Copy compilation unit
+1731714925466	Move compilation unit
+1731714927883	Move compilation unit
+1731714930805	Move compilation unit
+1731714933717	Move compilation unit
+1731714937741	Move compilation unit
+1731714941617	Move compilation unit
+1731714945340	Move compilation unit
+1731714948840	Move compilation unit
+1731714951787	Move compilation unit
+1731714957529	Delete element
+1731715003496	Delete element
+1731715006248	Delete element
+1731715115187	Delete element
+1731715940931	Delete element
+1731716223437	Rename type 'RetrieveStateImpl'
+1731716351777	Copy compilation unit
+1731716359624	Delete element
+1731716398023	Delete element
+1731716448177	Rename type 'RegisterNewSede'
+1731716493664	Rename type 'RetrieveNewSede'
+1731720879395	Move compilation unit
+1731720881696	Move compilation unit
+1731720884043	Move compilation unit
+1731720905980	Move compilation unit
+1731720908370	Move compilation unit
+1731720911153	Move compilation unit
+1731720923408	Move compilation unit
+1731720925614	Move compilation unit
+1731720927865	Move compilation unit
+1731720940616	Move compilation unit
+1731720943642	Move compilation unit
+1731720945673	Move compilation unit
+1731721593472	Delete element
+1731721603725	Copy compilation unit
+1731721615359	Rename type 'RetrieveTipoIdentificacionImpl'
+1731728250259	Rename type 'RegisterNewUbicacionStateRulesValidator'
+1731728676019	Delete element
+1731728678163	Delete element
+1731728683286	Copy package
+1731728690717	Copy package
+1731728705469	Delete element
+1731728737501	Move compilation unit
+1731728741561	Move compilation unit
+1731728746749	Move compilation unit
+1731728753054	Move compilation unit
+1731728758904	Move compilation unit
+1731728765051	Move compilation unit
+1731728782668	Move compilation unit
+1731728785934	Move compilation unit
+1731728789137	Move compilation unit
+1731728794916	Delete element
+1731728828628	Delete element
+1731728860034	Delete element
+1731729331386	Rename type 'CityStateDoesExistsRule'
+1731730055946	Rename type 'CityStateDoesNotExistsException'
+1731730152856	Rename type 'CityNameLenghtIsNotValidException'
+1731730192098	Rename type 'CityNameIsNullException'
+1731730271034	Rename type 'CityNameIsEqualsException'
+1731730312620	Rename type 'CityNameIsEmptyException'
+1731730348734	Rename type 'CityNameFormatIsNotValidException'
+1731730378542	Rename type 'CityIsBeginUsedException'
+1731730417564	Rename type 'CityIdIsNullException'
+1731730471965	Rename type 'CityIdDoesNotExistsException'
+1731731238433	Rename type 'CityIdDoesExistsException'
+1731731351615	Rename type 'CityNameLenghtIsValidRule'
+1731731385133	Rename type 'CityNameIsNotNullRule'
+1731732301283	Rename type 'StateIdIsNotNullRuleImpl'
+1731732654711	Delete element
+1731732657462	Delete element
+1731732660398	Delete element
+1731732759878	Delete element
+1731732767936	Delete element
+1731732769444	Delete element
+1731732772299	Delete element
+1731732774835	Delete element
+1731732790992	Delete element
+1731733144083	Rename type 'StateIdIsNotNullRuleImpl'
+1731733151989	Rename compilation unit 'StateDoesExistsRuleImpl.java'
+1731733164163	Rename type 'StateIdIsNotDefaultValueRuleImpl'
+1731734643852	Delete element
+1731734658579	Delete element
+1731734664314	Delete element
+1731734671525	Copy compilation unit
+1731734673706	Copy compilation unit
+1731734679607	Copy compilation unit
+1731734682527	Copy compilation unit
+1731734686791	Delete element
+1731734690727	Delete element
+1731734925326	Rename type 'RetrieveTipoIdentificacionImpl'
+1731734934469	Rename type 'RetrieveTipoIdentificacionImpl'
+1731735035158	Rename type 'RetrieveTipoSedeImpl'
+1731735597958	Rename type 'RegisterNewCityNameRulesValidatorImpl'
+1731736341205	Rename type 'RegisterNewCityRulesValidatorImpl'
+1731736770784	Delete element
+1731736772046	Delete element
+1731736773578	Delete element
+1731784596604	Delete element
+1731784611370	Move compilation unit
+1731787365659	Rename compilation unit 'RetrieveTipoUbicacionInteractor.java'
+1731787392874	Rename type 'RetrieveSedeInteractor'

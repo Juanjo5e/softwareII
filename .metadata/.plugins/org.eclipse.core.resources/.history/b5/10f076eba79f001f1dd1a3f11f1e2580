@@ -1,0 +1,16 @@
+package co.edu.uco.deviuco.usuarios.domain.afiliado.exceptions;
+
+public class AfiliadoIdIsNullException extends RuleUcoBetException {
+
+	public CityIdIsNullException(String userMessage) {
+		super(userMessage, userMessage, new Exception());
+
+	}
+
+	private static final long serialVersionUID = 1L;
+
+	public static final CityIdIsNullException create() {
+		var userMessage = "El Id  de la ciudad no puede ser Nulo...";
+		return new CityIdIsNullException(userMessage);
+	}
+}

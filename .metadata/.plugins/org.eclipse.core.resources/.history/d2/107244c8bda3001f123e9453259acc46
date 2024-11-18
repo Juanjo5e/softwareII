@@ -1,0 +1,5 @@
+package co.edu.uco.deviuco.usuarios.application.secondaryports.mapper;
+
+public interface SedeEntityMapper {
+
+}

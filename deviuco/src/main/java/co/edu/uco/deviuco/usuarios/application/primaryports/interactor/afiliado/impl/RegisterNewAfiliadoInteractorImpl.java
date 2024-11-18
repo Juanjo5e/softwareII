@@ -3,10 +3,11 @@ package co.edu.uco.deviuco.usuarios.application.primaryports.interactor.afiliado
 import org.springframework.stereotype.Service;
 
 
+
 import co.edu.uco.deviuco.usuarios.application.primaryports.dto.RegisterNewAfiliadoDTO;
 import co.edu.uco.deviuco.usuarios.application.primaryports.interactor.afiliado.RegisterNewAfiliadoInteractor;
 import co.edu.uco.deviuco.usuarios.application.primaryports.mapper.RegisterNewAfiliadoMapper;
-import co.edu.uco.deviuco.usuarios.application.usecase.afiliado.RegisterNewAfiliado;
+import co.edu.uco.deviuco.usuarios.application.usecase.afiliado.register.RegisterNewAfiliado;
 import jakarta.transaction.Transactional;
 
 @Service

@@ -1,0 +1,17 @@
+package co.edu.uco.deviuco.usuarios.domain.afiliado.exceptions;
+
+import co.edu.uco.deviuco.usuarios.crosscutting.exception.RuleDeviUcoException;
+
+public class AfiliadoTelefonoYaExisteException extends RuleDeviUcoException {
+
+    private static final long serialVersionUID = 1L;
+
+    public AfiliadoTelefonoYaExisteException(String userMessage) {
+        super(userMessage, userMessage, new Exception());
+    }
+
+    public static final AfiliadoTelefonoYaExisteException create() {
+        var userMessage = "El teléfono ya está registrado en el sistema.";
+        return new AfiliadoTelefonoYaExisteException(userMessage);
+    }
+}

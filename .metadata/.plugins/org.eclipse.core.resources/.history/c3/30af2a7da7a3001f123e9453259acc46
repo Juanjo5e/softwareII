@@ -1,0 +1,18 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.interactor.ubicacion.impl;
+
+public class RetrieveUbicacionInteractorImpl implements RetrieveUbicacionInteractor {
+	
+	public RetrieveUbicacion retrieveUbicacion;
+	
+	public RetrieveUbicacionInteractorImpl (RetrieveUbicacion retrieveUbicacion) {
+		this.retrieveUbicacion = retrieveUbicacion;
+	}
+
+	@Override
+	public List<UbicacionDTO> execute(UbicacionDTO data) {
+		var ubicacionDomain = UbicacionDtoMapper.INSTANCE.dtoToDomain(data);
+		var resultados = retrieveUbicacion.execute(cityDomain);
+		return UbicacionDtoMapper.INSTANCE.domainToDtoCollection(resultados);
+	}
+
+}

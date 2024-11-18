@@ -1,0 +1,16 @@
+package co.edu.uco.deviuco.usuarios.domain.tipoidentificacion.exceptions;
+import co.edu.uco.deviuco.usuarios.crosscutting.exception.RuleDeviUcoException;
+public class TipoIdentificacionIdIsNullException  extends RuleDeviUcoException{
+
+	private static final long serialVersionUID = 1L;
+
+	public TipoIdentificacionIdIsNullException(final String userMessage) {
+		super(userMessage, userMessage, new Exception());
+	}
+	
+	public static final TipoIdentificacionIdIsNullException create() {
+		var userMessage = "El Id del tipo de identificacion no puede ser nulo";
+		return new TipoIdentificacionIdIsNullException(userMessage);
+	}
+
+}

@@ -1,0 +1,17 @@
+package co.edu.uco.deviuco.usuarios.domain.afiliado.exceptions;
+
+import co.edu.uco.deviuco.usuarios.crosscutting.exception.RuleDeviUcoException;
+
+public class AfiliadoTelefonoFormatoIncorrectoException extends RuleDeviUcoException {
+
+    private static final long serialVersionUID = 1L;
+
+    public AfiliadoTelefonoFormatoIncorrectoException(String userMessage) {
+        super(userMessage, userMessage, new Exception());
+    }
+
+    public static final AfiliadoTelefonoFormatoIncorrectoException create() {
+        var userMessage = "El formato del teléfono del afiliado es incorrecto.";
+        return new AfiliadoTelefonoFormatoIncorrectoException(userMessage);
+    }
+}

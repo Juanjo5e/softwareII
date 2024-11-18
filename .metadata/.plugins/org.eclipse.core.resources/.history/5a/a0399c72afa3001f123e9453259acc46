@@ -1,0 +1,8 @@
+package co.edu.uco.deviuco.usuarios.application.usecase.tipoubicacion;
+
+import co.edu.uco.deviuco.usuarios.application.usecase.UseCaseWhitOutReturn;
+import co.edu.uco.deviuco.usuarios.domain.tipoubicacion.TipoUbicacionDomain;
+
+public interface RegisterNewTipoubicacion extends UseCaseWhitOutReturn<TipoUbicacionDomain>{
+
+}

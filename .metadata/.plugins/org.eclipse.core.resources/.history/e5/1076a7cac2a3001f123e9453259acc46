@@ -1,0 +1,42 @@
+package co.edu.uco.deviuco.usuarios.domain.sede;
+
+import java.util.UUID;
+
+import co.edu.uco.deviuco.usuarios.domain.Domain;
+
+public class SedeDomain extends Domain {
+	
+	private String nombre;
+	private CountryDomain country;
+	private InstitucionDomain institucion;
+	
+	
+	public StateDomain(final UUID id, final String nombre, final CountryDomain country) {
+		super(id);
+		setName(nombre);
+		setCountry(country);
+	}
+
+
+	public final  String getName() {
+		return nombre;
+	}
+
+
+	private final void setName(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+	public final CountryDomain getCountry() {
+		return country;
+	}
+
+
+	private final void setCountry(CountryDomain country) {
+		this.country = country;
+	}
+
+
+
+}

@@ -1,0 +1,50 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.dto.sede;
+
+import java.util.UUID;
+
+public class RetrieveSedeDTO {
+	private UUID id;
+	private String name;
+	
+	public SedeDTO() {
+		setId(UUIDHelper.getDefault());
+		setName(TextHelper.EMPTY);
+	}
+	
+	
+	
+	public SedeDTO(UUID id, String name) {
+		setId(id);
+		setName(name);
+	}
+	
+	public static SedeDTO create () {
+		return new SedeDTO();
+		
+	}
+	public static SedeDTO create(UUID id, String name) {
+		return new SedeDTO(id, name);
+		
+	}
+	public UUID getId() {
+		return id;
+	}
+
+	public void setId(UUID id) {
+		this.id = UUIDHelper.getDefault(id, UUIDHelper.getDefault());
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = TextHelper.applyTrim(name);
+	}
+
+
+
+
+	
+
+}

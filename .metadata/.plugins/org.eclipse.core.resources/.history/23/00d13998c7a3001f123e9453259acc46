@@ -1,0 +1,42 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.interactor.tipoubicacion.impl;
+
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import co.edu.uco.deviuco.usuarios.application.primaryports.dto.RetrieveTipoUbicacionDTO;
+import co.edu.uco.deviuco.usuarios.application.primaryports.interactor.tipoubicacion.RetrieveTipoUbicacionInteractor;
+import co.edu.uco.deviuco.usuarios.application.primaryports.mapper.TipoUbicacionDtoMapper;
+import co.edu.uco.deviuco.usuarios.application.usecase.tipoubicacion.RetrieveTipoUbicacion;
+import co.edu.uco.deviuco.usuarios.domain.tipoubicacion.TipoUbicacionDomain;
+import jakarta.transaction.Transactional;
+
+@Service
+@Transactional
+public class RetrieveTipoUbicacionInteractorImpl implements RetrieveTipoUbicacionInteractor {
+
+    private final RetrieveTipoUbicacion retrieveTipoUbicacion;
+
+    public RetrieveTipoUbicacionInteractorImpl(RetrieveTipoUbicacion retrieveTipoUbicacion) {
+        this.retrieveTipoUbicacion = retrieveTipoUbicacion;
+    }
+
+    @Override
+    public List<RetrieveTipoUbicacionDTO> execute(RetrieveTipoUbicacionDTO data) {
+        List<TipoUbicacionDomain> resultados;
+        
+        if (data == null || (data.getId() == null && data.getNombre() == null)) {
+            resultados = retrieveTipoUbicacion.findAll();
+        } else {
+            var tipoUbicacionDomain = TipoUbicacionDtoMapper.INSTANCE.dtoToDomain(data);
+            resultados = retrieveTipoUbicacion.execute(tipoUbicacionDomain);
+        }
+        
+        if (resultados.isEmpty()) {
+            throw new IllegalStateException("No se encontraron resultados en la base de datos");
+        }
+        
+        return TipoUbicacionDtoMapper.INSTANCE.domainToDtoCollection(resultados);
+    }
+}

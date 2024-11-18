@@ -1,0 +1,30 @@
+package co.edu.uco.deviuco.usuarios.domain.afiliado.rules.impl;
+
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import co.edu.uco.deviuco.usuarios.application.secondaryports.repository.AfiliadoRepository;
+import co.edu.uco.deviuco.usuarios.domain.afiliado.exceptions.AfiliadoIdDoesExistsException;
+import co.edu.uco.deviuco.usuarios.domain.afiliado.rules.AfiliadoIdDoesExistsRule;
+@Service
+public class AfiliadoIdDoesExistsRuleImpl implements AfiliadoIdDoesExistsRule {
+	
+	private final AfiliadoRepository afiliadoRepository;
+	
+	@Autowired
+	public AfiliadoIdDoesExistsRuleImpl(final AfiliadoRepository afiliadoRepository) {
+		this.afiliadoRepository = afiliadoRepository;
+	}
+
+	@Override
+	public void validate(final UUID data) {
+		if(!afiliadoRepository.existsById(data)) {
+			throw AfiliadoIdDoesExistsException.create();
+			
+		}
+		
+	}
+
+}

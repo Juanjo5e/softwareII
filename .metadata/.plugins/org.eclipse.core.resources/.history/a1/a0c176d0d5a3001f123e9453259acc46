@@ -1,0 +1,8 @@
+package co.edu.uco.deviuco.usuarios.domain.tipoubicacion.rules;
+
+import java.util.UUID;
+
+public interface TipoUbicacionDoesExistsRule extends DomainRule<UUID>{
+
+}
+

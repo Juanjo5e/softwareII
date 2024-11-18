@@ -1,10 +1,11 @@
 package co.edu.uco.deviuco.usuarios.application.usecase.afiliado.impl;
 
 import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import co.edu.uco.deviuco.usuarios.application.secondaryports.mapper.AfiliadoEntityMapper;
-import co.edu.uco.deviuco.usuarios.application.secondaryports.repository.AfiliadoRepository;
+import co.edu.uco.deviuco.usuarios.application.secondaryports.repository.afiliado.AfiliadoRepository;
 import co.edu.uco.deviuco.usuarios.application.usecase.afiliado.RetrieveAfiliado;
 import co.edu.uco.deviuco.usuarios.domain.afiliado.AfiliadoDomain;
 @Service

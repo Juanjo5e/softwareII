@@ -1,0 +1,33 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.interactor.sede.impl;
+
+import java.util.List;
+
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import co.edu.uco.deviuco.usuarios.application.primaryports.dto.RetrieveSedeDTO;
+import co.edu.uco.deviuco.usuarios.application.primaryports.interactor.sede.RetrieveSedeInteractor;
+import co.edu.uco.deviuco.usuarios.application.primaryports.mapper.SedeDtoMapper;
+import co.edu.uco.deviuco.usuarios.application.usecase.sede.RetrieveSede;
+
+
+@Service
+@Transactional
+public class RetrieveSedeInteractorImpl implements RetrieveSedeInteractor {
+
+	private RetrieveSede retrieveSede;
+
+	public RetrieveSedeInteractorImpl(RetrieveSede retrieveSede) {
+		this.retrieveSede = retrieveSede;
+	}
+
+	@Override
+	public List<RetrieveSedeDTO> execute(RetrieveSedeDTO data) {
+
+		var SedeDomain = SedeDtoMapper.INSTANCE.dtoToDomain(data);
+		var resultados = retrieveSede.execute(SedeDomain);
+
+		return SedeDtoMapper.INSTANCE.domainToDtoCollection(resultados);
+	}
+}

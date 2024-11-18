@@ -1,0 +1,7 @@
+spring.application.name=deviuco
+spring.cloud.azure.keyvault.secret.property-sources[0].endpoint=https://devi2024.vault.azure.net/
+
+# URL del Key Vault
+azure.keyvault.url=https://devi2024.vault.azure.net/
+
+spring.datasource.url=${post}

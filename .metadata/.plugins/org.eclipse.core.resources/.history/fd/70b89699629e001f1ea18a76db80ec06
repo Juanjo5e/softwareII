@@ -1,5 +1,0 @@
-package co.edu.uco.deviuco.usuarios.application.usecase.afiliado;
-
-public interface RegisterNewAfiliadoIdRulesValidator {
-
-}

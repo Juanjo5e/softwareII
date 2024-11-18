@@ -1,0 +1,60 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.dto.sede;
+
+import java.util.UUID;
+
+import co.edu.uco.deviuco.usuarios.crosscutting.helpers.UUIDHelper;
+
+public class RetrieveSedeDTO {
+	private UUID id; 
+	private String name;
+	private String ciudad;
+	private String tipoSede;
+	
+	public RetrieveSedeDTO() {
+		setId(UUIDHelper.getDefault());
+		setName(TextHelper.EMPTY);
+		setCountry(country);
+	}
+	
+	
+	
+	public RetrieveSedeDTO(UUID id, String name, CountryDTO country) {
+		setId(id);
+		setName(name);
+		setCountry(country);
+	}
+	
+	public static RetrieveSedeDTO create () {
+		return new RetrieveSedeDTO();
+	}
+	
+	public static  RetrieveSedeDTO create(UUID id, String name, CountryDTO country) {
+		return new RetrieveSedeDTO(id, name, country);
+		
+	}
+
+
+	public UUID getId() {
+		return id;
+	}
+
+
+
+	public void setId(UUID id) {
+		this.id = UUIDHelper.getDefault(id, UUIDHelper.getDefault());
+	}
+
+
+
+	public String getName() {
+		return name;
+	}
+
+
+
+	public void setName(String name) {
+		this.name = TextHelper.applyTrim(name);
+	}
+	
+
+}

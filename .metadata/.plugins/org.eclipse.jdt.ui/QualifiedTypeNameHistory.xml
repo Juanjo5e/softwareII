@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="org.bouncycastle.asn1.DEROctetString"/>
+    <fullyQualifiedTypeName name="com.google.auto.value.extension.serializable.SerializableAutoValue"/>
+    <fullyQualifiedTypeName name="co.edu.uco.deviuco.usuarios.application.primaryports.interactor.tipoidentificacion.RetrieveTipoIdentificacionInteractor"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="co.edu.uco.deviuco.usuarios.application.primaryports.dto.sede.CiudadDTO"/>
+    <fullyQualifiedTypeName name="co.edu.uco.deviuco.usuarios.application.primaryports.dto.sede.TipoSedeDTO"/>
+    <fullyQualifiedTypeName name="co.edu.uco.deviuco.usuarios.domain.tipoubicacion.TipoUbicacionDomain"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+    <fullyQualifiedTypeName name="co.edu.uco.deviuco.usuarios.application.secondaryports.entity.CiudadEntity"/>
+    <fullyQualifiedTypeName name="co.edu.uco.deviuco.usuarios.crosscutting.exception.RepositoryDeviUcoException"/>
+    <fullyQualifiedTypeName name="org.mapstruct.Mapper"/>
+    <fullyQualifiedTypeName name="co.edu.uco.deviuco.usuarios.crosscutting.exception.RuleDeviUcoException"/>
+    <fullyQualifiedTypeName name="co.edu.uco.deviuco.usuarios.application.usecase.sede.RetrieveSede"/>
+    <fullyQualifiedTypeName name="co.edu.uco.deviuco.usuarios.application.primaryports.dto.TipoUbicacionDTO"/>
+    <fullyQualifiedTypeName name="co.edu.uco.deviuco.usuarios.application.primaryports.dto.SedeDTO"/>
+    <fullyQualifiedTypeName name="java.lang.StrictMath"/>
+    <fullyQualifiedTypeName name="co.edu.uco.deviuco.usuarios.application.primaryports.dto.DepartamentoDTO"/>
+    <fullyQualifiedTypeName name="co.edu.uco.deviuco.usuarios.application.primaryports.dto.InstitucionDTO"/>
+    <fullyQualifiedTypeName name="co.edu.uco.deviuco.usuarios.application.primaryports.dto.CuidadDTO"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,17 @@
+package co.edu.uco.deviuco.usuarios.domain.afiliado.exceptions;
+
+import co.edu.uco.deviuco.usuarios.crosscutting.exception.RuleDeviUcoException;
+
+public class AfiliadoCorreoFormatoIncorrectoException extends RuleDeviUcoException {
+
+    private static final long serialVersionUID = 1L;
+
+    public AfiliadoCorreoFormatoIncorrectoException(String userMessage) {
+        super(userMessage, userMessage, new Exception());
+    }
+
+    public static final AfiliadoCorreoFormatoIncorrectoException create() {
+        var userMessage = "El formato del correo del afiliado es incorrecto.";
+        return new AfiliadoCorreoFormatoIncorrectoException(userMessage);
+    }
+}

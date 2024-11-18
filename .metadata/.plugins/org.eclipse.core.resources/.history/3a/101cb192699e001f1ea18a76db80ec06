@@ -1,5 +1,0 @@
-package co.edu.uco.deviuco.usuarios.domain.afiliado.rules;
-
-public interface AfiliadoNameFormatIsValidRule {
-
-}

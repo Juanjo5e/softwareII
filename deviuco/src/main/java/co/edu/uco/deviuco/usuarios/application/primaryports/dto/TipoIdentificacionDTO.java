@@ -10,13 +10,13 @@ public class TipoIdentificacionDTO {
 	private String nombre;
 	
 	
-	public TipoIdentificacionDTO(final UUID id, final String nombre) {
+	public TipoIdentificacionDTO() {
 		setId(id);
 		setName(nombre);
 	}
 	
 	public static TipoIdentificacionDTO create(final UUID id, final String nombre) {
-		return new TipoIdentificacionDTO(id, nombre);
+		return new TipoIdentificacionDTO();
 	}
 
 	public UUID getId() {

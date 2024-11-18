@@ -1,0 +1,51 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.dto;
+
+import java.util.UUID;
+
+import co.edu.uco.deviuco.usuarios.crosscutting.helpers.TextHelper;
+import co.edu.uco.deviuco.usuarios.crosscutting.helpers.UUIDHelper;
+
+public class UbicacionDTO {
+	private UUID id;
+	private String name;
+	
+	public UbicacionDTO() {
+		setId(UUIDHelper.getDefault());
+		setName(TextHelper.EMPTY);
+	}
+	
+	
+	
+	public UbicacionDTO(UUID id, String name) {
+		setId(id);
+		setName(name);
+	}
+	
+	public static UbicacionDTO create () {
+		return new UbicacionDTO();
+		
+	}
+	public static UbicacionDTO create(UUID id, String name) {
+		return new UbicacionDTO(id, name);
+		
+	}
+	public UUID getId() {
+		return id;
+	}
+
+	public void setId(UUID id) {
+		this.id = UUIDHelper.getDefault(id, UUIDHelper.getDefault());
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = TextHelper.applyTrim(name);
+	}
+
+}
+
+
+	

@@ -1,0 +1,38 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.interactor.tipoubicacion.impl;
+
+import java.util.List;
+
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import co.edu.uco.deviuco.usuarios.application.primaryports.interactor.tipoidentificacion.RetrieveTipoIdentificacionInteractor;
+
+@Service
+@Transactional
+public class RetrieveTipoUbicaicionInteractorImpl implements RetrieveTipoUbicaicionInteractor {
+
+    private final RetrieveTipoUbicaicion retrieveTipoUbicaicion;
+
+    public RetrieveTipoUbicaicionInteractorImpl(RetrieveTipoUbicaicion retrieveTipoUbicaicion) {
+        this.retrieveTipoUbicaicion = retrieveTipoUbicaicion;
+    }
+
+    @Override
+    public List<RetriveTipoUbicaicionDTO> execute(RetriveTipoUbicaicionDTO data) {
+        List<TipoUbicaicionDomain> resultados;
+        
+        if (data == null || (data.getId() == null && data.getNombre() == null)) {
+            resultados = retrieveTipoUbicaicion.findAll();
+        } else {
+            var tipoUbicaicionDomain = TipoUbicaicionDtoMapper.INSTANCE.dtoToDomain(data);
+            resultados = retrieveTipoUbicaicion.execute(tipoUbicaicionDomain);
+        }
+        
+        if (resultados.isEmpty()) {
+            throw new IllegalStateException("No se encontraron resultados en la base de datos");
+        }
+        
+        return TipoUbicaicionDtoMapper.INSTANCE.domainToDtoCollection(resultados);
+    }
+}

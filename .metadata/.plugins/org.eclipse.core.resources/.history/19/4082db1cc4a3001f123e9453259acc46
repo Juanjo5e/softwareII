@@ -1,0 +1,54 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.dto;
+
+import java.util.UUID;
+
+import co.edu.uco.deviuco.usuarios.crosscutting.helpers.TextHelper;
+import co.edu.uco.deviuco.usuarios.crosscutting.helpers.UUIDHelper;
+
+
+public class CuidadDTO {
+	private UUID id;
+	private String nombre;
+	
+	public CuidadDTO() {
+		setId(UUIDHelper.getDefault());
+		setNombre(TextHelper.EMPTY);
+	}
+	
+	
+	
+	public CuidadDTO(UUID id, String nombre) {
+		setId(id);
+		setNombre(nombre);
+	}
+	
+	public static CuidadDTO create () {
+		return new CuidadDTO();
+		
+	}
+	public static CuidadDTO create(UUID id, String nombre) {
+		return new CuidadDTO(id, nombre);
+		
+	}
+	public UUID getId() {
+		return id;
+	}
+
+	public void setId(UUID id) {
+		this.id = UUIDHelper.getDefault(id, UUIDHelper.getDefault());
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = TextHelper.applyTrim(nombre);
+	}
+
+
+
+
+	
+
+}

@@ -1,0 +1,17 @@
+package co.edu.uco.deviuco.usuarios.domain.tipoubicacion.exceptions;
+
+import co.edu.uco.deviuco.usuarios.crosscutting.exception.RuleDeviUcoException;
+
+public class TipoUbicacionNombreNoEncontradoException extends RuleDeviUcoException {
+
+    private static final long serialVersionUID = 1L;
+
+    public TipoUbicacionNombreNoEncontradoException(String userMessage) {
+        super(userMessage, userMessage, new Exception());
+    }
+
+    public static final TipoUbicacionNombreNoEncontradoException create() {
+        var userMessage = "El nombre del tipo de ubicación solicitado no fue encontrado en la base de datos.";
+        return new TipoUbicacionNombreNoEncontradoException(userMessage);
+    }
+}

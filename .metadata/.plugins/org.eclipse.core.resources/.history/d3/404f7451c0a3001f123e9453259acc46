@@ -1,0 +1,26 @@
+package co.edu.uco.deviuco.usuarios.domain.afiliado.rules.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import co.edu.uco.deviuco.usuarios.application.secondaryports.repository.AfiliadoRepository;
+import co.edu.uco.deviuco.usuarios.domain.afiliado.AfiliadoDomain;
+import co.edu.uco.deviuco.usuarios.domain.afiliado.exceptions.AfiliadoCorreoYaExisteException;
+import co.edu.uco.deviuco.usuarios.domain.afiliado.rules.AfiliadoCorreoNoExisteRule;
+
+@Service
+public class AfiliadoCorreoNoExisteRuleImpl implements AfiliadoCorreoNoExisteRule {
+
+    private final AfiliadoRepository afiliadoRepository;
+
+    @Autowired
+    public AfiliadoCorreoNoExisteRuleImpl(AfiliadoRepository afiliadoRepository) {
+        this.afiliadoRepository = afiliadoRepository;
+    }
+
+    @Override
+    public void validate(AfiliadoDomain afiliado) {
+        if (afiliadoRepository.existsByCorreo(afiliado.getCorreo())) {
+            throw AfiliadoCorreoYaExisteException.create();
+        }
+    }
+}

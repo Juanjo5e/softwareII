@@ -1,0 +1,10 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.interactor.sede;
+
+import java.util.List;
+
+import co.edu.uco.deviuco.usuarios.application.primaryports.dto.sede.SedeDTO;
+import co.edu.uco.deviuco.usuarios.application.primaryports.interactor.InteractorWithReturn;
+
+public interface RetrieveCiuidadInteractor extends InteractorWithReturn<SedeDTO, List<SedeDTO>> {
+
+}

@@ -1,0 +1,13 @@
+package co.edu.uco.deviuco.usuarios.application.secondaryports.repository;
+
+import java.util.List;
+import java.util.UUID;
+import co.edu.uco.deviuco.usuarios.application.secondaryports.entity.AfiliadoEntity;
+
+public interface AfiliadoRepository extends AfiliadoRepositoryCustom {
+    boolean existsById(UUID id);
+    void save(AfiliadoEntity afiliadoEntity);
+    boolean existsByCorreo(String correo);
+    boolean existsByTipoIdentificacionIdAndNumeroIdAfiliado(UUID tipoIdentificacionId, String numeroIdAfiliado);
+	boolean existsByTelefono(String telefono);
+}

@@ -1,5 +1,6 @@
 package co.edu.uco.deviuco.usuarios.domain.afiliado.exceptions;
 
+import co.edu.uco.deviuco.usuarios.application.secondaryports.redis.MessageCatalog;
 import co.edu.uco.deviuco.usuarios.crosscutting.exception.RuleDeviUcoException;
 
 public class AfiliadoIdDoesExistsException extends RuleDeviUcoException {
@@ -9,8 +10,8 @@ public class AfiliadoIdDoesExistsException extends RuleDeviUcoException {
         super(technicalMessage, userMessage, rootException);
     }
     
-    public static final AfiliadoIdDoesExistsException create() {
-        var userMessage = "El afiliado ya existe en el sistema...";
+    public static final AfiliadoIdDoesExistsException create(MessageCatalog messageCatalog) {
+        var userMessage = messageCatalog.getMessageOrDefault("AfiliadoIdDoesExistsException");
         return new AfiliadoIdDoesExistsException(userMessage, userMessage, new Exception());
     }
 } 

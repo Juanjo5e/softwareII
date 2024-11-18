@@ -1,0 +1,18 @@
+package co.edu.uco.deviuco.usuarios.domain.ubicacion.exceptions;
+
+import co.edu.uco.deviuco.usuarios.crosscutting.exception.RuleDeviUcoException;
+
+public final class UbicacionIdDoesNotExistsException extends RuleDeviUcoException {
+
+	public UbicacionIdDoesNotExistsException(String userMessage) {
+		super(userMessage, userMessage, new Exception());
+	}
+
+	private static final long serialVersionUID = 1L;
+	
+	public static final UbicacionIdDoesNotExistsException create() {
+		var userMessage = "No existe la ciudad con el id indicado...";
+		return new UbicacionIdDoesNotExistsException(userMessage);
+	}
+
+}

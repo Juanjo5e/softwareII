@@ -1,0 +1,10 @@
+spring.datasource.url=jdbc:postgresql://deviucopay.postgres.database.azure.com:5432/deviuco?sslmode=require
+spring.datasource.username=admin2024
+spring.datasource.password=devi_2024
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.format_sql=true
+
+
+spring.cloud.vault.enabled=false

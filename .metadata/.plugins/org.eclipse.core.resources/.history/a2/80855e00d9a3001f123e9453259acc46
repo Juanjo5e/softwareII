@@ -1,0 +1,83 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.dto;
+
+import java.util.UUID;
+
+import co.edu.uco.deviuco.usuarios.crosscutting.helpers.TextHelper;
+import co.edu.uco.deviuco.usuarios.crosscutting.helpers.UUIDHelper;
+
+public class RetrieveSedeDTO {
+	private UUID id; 
+	private String nombre;
+	private SedeDTO ciudad;
+	private TipoUbicacionDTO tipoSede;
+	
+	public RetrieveSedeDTO() {
+		setId(UUIDHelper.getDefault());
+		setNombre(TextHelper.EMPTY);
+		setCiudad(ciudad);
+		setTipoSede(tipoSede);
+	}
+	
+	
+	
+	public RetrieveSedeDTO(UUID id, String nombre, SedeDTO ciudad, TipoUbicacionDTO tipoSede) {
+		setId(id);
+		setNombre(nombre);
+		setCiudad(ciudad);
+		setTipoSede(tipoSede);
+	}
+	
+	public static RetrieveSedeDTO create () {
+		return new RetrieveSedeDTO();
+	}
+	
+	public static  RetrieveSedeDTO create(UUID id, String nombre, SedeDTO ciudad, TipoUbicacionDTO tipoSede) {
+		return new RetrieveSedeDTO(id, nombre, ciudad, tipoSede);
+		
+	}
+
+
+	public UUID getId() {
+		return id;
+	}
+
+
+
+	public void setId(UUID id) {
+		this.id = UUIDHelper.getDefault(id, UUIDHelper.getDefault());
+	}
+
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+
+	public void setName(String nombre) {
+		this.nombre = TextHelper.applyTrim(nombre);
+	}
+
+	public SedeDTO getCountry() {
+		return ciudad;
+	}
+
+
+
+	public void setCiudad(SedeDTO ciudad) {
+		this.ciudad = ciudad;
+	}
+	
+	public TipoUbicacionDTO getTipoSede() {
+		return tipoSede;
+	}
+
+
+
+	public void setTipoSede(TipoUbicacionDTO tipoSede) {
+		this.tipoSede= tipoSede;
+	}
+	
+
+}

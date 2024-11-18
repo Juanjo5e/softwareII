@@ -1,0 +1,18 @@
+package co.edu.uco.deviuco.usuarios.domain.tipoubicacion.exceptions;
+
+import co.edu.uco.deviuco.usuarios.crosscutting.exception.RuleDeviUcoException;
+
+public class StateDoesNotExistsException extends RuleDeviUcoException {
+
+	private static final long serialVersionUID = 1L;
+
+	public StateDoesNotExistsException(final String userMessage) {
+		super(userMessage, userMessage, new Exception());
+	}
+	
+	public static final StateDoesNotExistsException create() {
+		var userMessage = "El tipo de ubicacion no puede er el valor por defecto";
+		return new StateDoesNotExistsException(userMessage);
+	}
+
+}

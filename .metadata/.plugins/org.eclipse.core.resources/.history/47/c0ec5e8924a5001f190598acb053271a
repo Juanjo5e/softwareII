@@ -1,0 +1,19 @@
+package co.edu.uco.deviuco.usuarios.domain.afiliado.exceptions;
+
+import co.edu.uco.deviuco.usuarios.crosscutting.exception.RuleDeviUcoException;
+
+public class AfiliadoNameIsNullException extends RuleDeviUcoException{
+
+	public AfiliadoNameIsNullException(String userMessage) {
+		super(userMessage, userMessage, new Exception());
+
+	}
+
+	private static final long serialVersionUID = 1L;
+	
+	public static final AfiliadoNameIsNullException create() {
+		var userMessage = "El nombre del afiliado no puede ser nulo o vacío";
+		return new AfiliadoNameIsNullException(userMessage);
+	}
+
+}

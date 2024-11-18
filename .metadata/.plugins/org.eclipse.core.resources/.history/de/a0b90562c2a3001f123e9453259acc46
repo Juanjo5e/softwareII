@@ -1,0 +1,42 @@
+package co.edu.uco.deviuco.usuarios.domain.institucion;
+
+import java.util.UUID;
+import co.edu.uco.deviuco.usuarios.domain.Domain;
+
+public class InstitucionDomain extends Domain {
+    private String nombre;
+    private String correoInstitucional;
+    private String telefono;
+
+    public InstitucionDomain(UUID id, String nombre, String correoInstitucional, String telefono) {
+        super(id);
+        setNombre(nombre);
+        setCorreoInstitucional(correoInstitucional);
+        setTelefono(telefono);
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    private void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getCorreoInstitucional() {
+        return correoInstitucional;
+    }
+
+    private void setCorreoInstitucional(String correoInstitucional) {
+        this.correoInstitucional = correoInstitucional;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    private void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+}
+ 

@@ -1,0 +1,76 @@
+package co.edu.uco.deviuco.usuarios.application.secondaryports.entity;
+
+
+import java.util.UUID;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "ciudad")
+public final class CiudadEntity {
+
+	@Id
+	@Column(name = "id")
+	private UUID id;
+	@Column(name = "name")
+	private String name;
+
+	@ManyToOne
+	@JoinColumn(name = "conutry")
+	private CountryEntity country;
+
+	Ciudadentity() {
+		setId(UUIDHelper.getDefault());
+		setName(TextHelper.EMPTY);
+		setCountry(CountryEntity.create());
+	}
+
+	public Ciudadentity(final UUID id, final String name, final CountryEntity country) {
+		setId(id);
+		setName(name);
+		setCountry(country);
+	}
+	
+	public static final Ciudadentity create() {
+		return new Ciudadentity();
+	}
+	
+	
+	public static final Ciudadentity create(final UUID id, final String name, final CountryEntity country) {
+		return new Ciudadentity(id, name, country);
+	}
+	
+	public static final Ciudadentity create(final UUID id) {
+		return new Ciudadentity(id, TextHelper.EMPTY, CountryEntity.create());
+	}
+
+
+	public UUID getId() {
+		return id;
+	}
+
+	public void setId(final UUID id) {
+		this.id = UUIDHelper.getDefault(id, UUIDHelper.getDefault());
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(final String name) {
+		this.name = TextHelper.applyTrim(name);
+	}
+
+	public CountryEntity getCountry() {
+		return country;
+	}
+
+	public void setCountry(final CountryEntity country) {
+		this.country = ObjectHelper.getDefault(country, CountryEntity.create());
+	}
+
+}

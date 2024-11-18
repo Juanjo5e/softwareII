@@ -1,0 +1,20 @@
+# Server configuration
+
+spring.application.name=deviuco
+spring.cloud.azure.keyvault.secret.property-sources[0].endpoint=https://devi2024.vault.azure.net/
+azure.keyvault.url=https://devi2024.vault.azure.net/
+
+# Configuración de base de datos
+spring.datasource.url=${postgres-url}
+spring.datasource.username=${postgres-username}
+spring.datasource.password=${postgres-password}
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+# JPA properties
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=none
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.mailersend.api-key=${mailsenderapi1}
+spring.mailersend.email=${deviucoemail}
+spring.mailersend.destination.email=${email}
+spring.data.redis.url=${catalogo}

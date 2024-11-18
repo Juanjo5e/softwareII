@@ -1,7 +1,0 @@
-package co.edu.uco.deviuco.usuarios.application.usecase.tipoidentificacion;
-import java.util.List;
-
-
-public interface extends UseCaseWhitReturn<StateDomain, List<StateDomain>>{
-
-}

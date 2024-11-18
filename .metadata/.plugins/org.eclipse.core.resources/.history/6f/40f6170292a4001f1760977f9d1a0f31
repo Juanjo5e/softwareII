@@ -1,0 +1,161 @@
+package co.edu.uco.deviuco.usuarios.application.secondaryports.mapper;
+
+import co.edu.uco.deviuco.usuarios.application.secondaryports.entity.CiudadEntity;
+import co.edu.uco.deviuco.usuarios.application.secondaryports.entity.DepartamentoEntity;
+import co.edu.uco.deviuco.usuarios.application.secondaryports.entity.InstitucionEntity;
+import co.edu.uco.deviuco.usuarios.application.secondaryports.entity.PaisEntity;
+import co.edu.uco.deviuco.usuarios.application.secondaryports.entity.SedeEntity;
+import co.edu.uco.deviuco.usuarios.domain.ciudad.CiudadDomain;
+import co.edu.uco.deviuco.usuarios.domain.departamento.DepartamentoDomain;
+import co.edu.uco.deviuco.usuarios.domain.institucion.InstitucionDomain;
+import co.edu.uco.deviuco.usuarios.domain.pais.PaisDomain;
+import co.edu.uco.deviuco.usuarios.domain.sede.SedeDomain;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import javax.annotation.processing.Generated;
+
+@Generated(
+    value = "org.mapstruct.ap.MappingProcessor",
+    date = "2024-11-16T19:59:54-0500",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.40.0.z20241023-1306, environment: Java 17.0.13 (Eclipse Adoptium)"
+)
+public class SedeEntityMapperImpl implements SedeEntityMapper {
+
+    @Override
+    public SedeDomain entityToDomain(SedeEntity entity) {
+        if ( entity == null ) {
+            return null;
+        }
+
+        UUID id = null;
+        String nombre = null;
+
+        id = entity.getId();
+        nombre = entity.getNombre();
+
+        CiudadDomain country = null;
+        InstitucionDomain intitucion = null;
+
+        SedeDomain sedeDomain = new SedeDomain( id, nombre, country, intitucion );
+
+        return sedeDomain;
+    }
+
+    @Override
+    public SedeEntity domainToEntity(SedeDomain domain) {
+        if ( domain == null ) {
+            return null;
+        }
+
+        UUID id = null;
+        InstitucionEntity institucion = null;
+        CiudadEntity ciudad = null;
+
+        id = domain.getId();
+        institucion = institucionDomainToInstitucionEntity( domain.getInstitucion() );
+        ciudad = ciudadDomainToCiudadEntity( domain.getCiudad() );
+
+        String nombre = null;
+
+        SedeEntity sedeEntity = new SedeEntity( id, nombre, institucion, ciudad );
+
+        return sedeEntity;
+    }
+
+    @Override
+    public List<SedeEntity> domainToEntityCollection(List<SedeDomain> domainCollection) {
+        if ( domainCollection == null ) {
+            return null;
+        }
+
+        List<SedeEntity> list = new ArrayList<SedeEntity>( domainCollection.size() );
+        for ( SedeDomain sedeDomain : domainCollection ) {
+            list.add( domainToEntity( sedeDomain ) );
+        }
+
+        return list;
+    }
+
+    @Override
+    public List<SedeDomain> entityToDomainCollection(List<SedeEntity> entityCollection) {
+        if ( entityCollection == null ) {
+            return null;
+        }
+
+        List<SedeDomain> list = new ArrayList<SedeDomain>( entityCollection.size() );
+        for ( SedeEntity sedeEntity : entityCollection ) {
+            list.add( entityToDomain( sedeEntity ) );
+        }
+
+        return list;
+    }
+
+    protected InstitucionEntity institucionDomainToInstitucionEntity(InstitucionDomain institucionDomain) {
+        if ( institucionDomain == null ) {
+            return null;
+        }
+
+        UUID id = null;
+        String nombre = null;
+
+        id = institucionDomain.getId();
+        nombre = institucionDomain.getNombre();
+
+        InstitucionEntity institucionEntity = new InstitucionEntity( id, nombre );
+
+        return institucionEntity;
+    }
+
+    protected PaisEntity paisDomainToPaisEntity(PaisDomain paisDomain) {
+        if ( paisDomain == null ) {
+            return null;
+        }
+
+        UUID id = null;
+        String nombre = null;
+
+        id = paisDomain.getId();
+        nombre = paisDomain.getNombre();
+
+        PaisEntity paisEntity = new PaisEntity( id, nombre );
+
+        return paisEntity;
+    }
+
+    protected DepartamentoEntity departamentoDomainToDepartamentoEntity(DepartamentoDomain departamentoDomain) {
+        if ( departamentoDomain == null ) {
+            return null;
+        }
+
+        UUID id = null;
+        String nombre = null;
+        PaisEntity pais = null;
+
+        id = departamentoDomain.getId();
+        nombre = departamentoDomain.getNombre();
+        pais = paisDomainToPaisEntity( departamentoDomain.getPais() );
+
+        DepartamentoEntity departamentoEntity = new DepartamentoEntity( id, nombre, pais );
+
+        return departamentoEntity;
+    }
+
+    protected CiudadEntity ciudadDomainToCiudadEntity(CiudadDomain ciudadDomain) {
+        if ( ciudadDomain == null ) {
+            return null;
+        }
+
+        UUID id = null;
+        String nombre = null;
+        DepartamentoEntity departamento = null;
+
+        id = ciudadDomain.getId();
+        nombre = ciudadDomain.getNombre();
+        departamento = departamentoDomainToDepartamentoEntity( ciudadDomain.getDepartamento() );
+
+        CiudadEntity ciudadEntity = new CiudadEntity( id, nombre, departamento );
+
+        return ciudadEntity;
+    }
+}

@@ -1,0 +1,22 @@
+{"properties": [
+  {
+    "name": "azure.keyvault.url",
+    "type": "java.lang.String",
+    "description": "A description for 'azure.keyvault.url'"
+  },
+  {
+    "name": "spring.mailersend.destination.email",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.mailersend.destination.email'"
+  },
+  {
+    "name": "spring.mailersend.api-key",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.mailersend.api-key'"
+  }
+]}{
+    "name": "spring.mailersend.email",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.mailersend.email'"
+  }
+]}

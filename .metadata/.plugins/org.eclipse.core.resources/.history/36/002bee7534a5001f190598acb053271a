@@ -1,0 +1,18 @@
+package co.edu.uco.deviuco.usuarios.domain.ubicacion.exceptions;
+
+import co.edu.uco.deviuco.usuarios.crosscutting.exception.RuleDeviUcoException;
+
+public class UbicacionIsBeginUsedException extends RuleDeviUcoException{
+
+	public UbicacionIsBeginUsedException(String userMessage) {
+		super(userMessage, userMessage, new Exception());
+	}
+
+	private static final long serialVersionUID = 1L;
+	
+	public static final UbicacionIsBeginUsedException create() {
+		var userMessage = "La ubicacion esta siendo utilizada en otra parte del sistema...";
+		return new UbicacionIsBeginUsedException(userMessage);
+	}
+
+}

@@ -3,25 +3,25 @@ import co.edu.uco.deviuco.usuarios.crosscutting.exception.enums.Layer;
 
 public final class CrosscuttingDeviUcoException extends DeviUcoException {
     
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    private CrosscuttingDeviUcoException(final String technicalMessage, final String userMessage, final Exception rootException) {
-        super(technicalMessage, userMessage, Layer.CROSSCUTTING, rootException);
-    }
-    
-    public static final CrosscuttingDeviUcoException create(final String technicalMessage, final String userMessage, final Exception rootException) {
-        return new CrosscuttingDeviUcoException(technicalMessage, userMessage, rootException);
-    }
-    
-    public static final CrosscuttingDeviUcoException create(final String userMessage, final Exception rootException) {
-        return new CrosscuttingDeviUcoException(userMessage, userMessage, rootException);
-    }
-    
-    public static final CrosscuttingDeviUcoException create(final String technicalMessage, final String userMessage) {
-        return new CrosscuttingDeviUcoException(technicalMessage, userMessage, new Exception());
-    }
-    
-    public static final CrosscuttingDeviUcoException create(final String userMessage) {
-        return new CrosscuttingDeviUcoException(userMessage, userMessage, new Exception());
-    }
-} 
+	public CrosscuttingDeviUcoException(final String userMessage, final String technicalMessage, final Exception rootException){
+		super(userMessage, technicalMessage, rootException, Layer.CROSSCUTING);
+	}
+	public CrosscuttingDeviUcoException(final String userMessage, final String technicalMessage){
+		super(userMessage, technicalMessage);
+	}
+	
+	public static final CrosscuttingDeviUcoException create(final String userMessage, final String technicalMessage, final Exception rootException) {
+		return new CrosscuttingDeviUcoException(userMessage, technicalMessage, rootException);
+	}
+	
+	public static final CrosscuttingDeviUcoException create(final String userMessage) {
+		return new CrosscuttingDeviUcoException(userMessage, userMessage, new Exception());
+	}
+	
+	public static final CrosscuttingDeviUcoException create(final String userMessage, final String technicalMessage) {
+		return new CrosscuttingDeviUcoException(userMessage, technicalMessage, new Exception());
+	}
+
+}

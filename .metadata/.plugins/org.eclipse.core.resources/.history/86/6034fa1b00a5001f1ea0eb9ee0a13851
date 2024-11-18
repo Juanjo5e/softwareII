@@ -1,0 +1,39 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.mapper;
+
+import co.edu.uco.deviuco.usuarios.application.primaryports.dto.RegisterNewUbicacionDTO;
+import co.edu.uco.deviuco.usuarios.domain.sede.SedeDomain;
+import co.edu.uco.deviuco.usuarios.domain.tipoubicacion.TipoUbicacionDomain;
+import co.edu.uco.deviuco.usuarios.domain.ubicacion.UbicacionDomain;
+import java.util.UUID;
+import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
+
+@Generated(
+    value = "org.mapstruct.ap.MappingProcessor",
+    date = "2024-11-16T19:59:52-0500",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.40.0.z20241023-1306, environment: Java 17.0.13 (Eclipse Adoptium)"
+)
+@Component
+public class RegisterNewUbicacionMapperImpl implements RegisterNewUbicacionMapper {
+
+    @Override
+    public UbicacionDomain toDomain(RegisterNewUbicacionDTO dto) {
+        if ( dto == null ) {
+            return null;
+        }
+
+        String nombre = null;
+        TipoUbicacionDomain tipoUbicacion = null;
+        SedeDomain sede = null;
+
+        nombre = dto.getUbicacionNombre();
+        tipoUbicacion = mapToTipoUbicacionDomain( dto.getTipoUbicacionId() );
+        sede = mapToSedeDomain( dto.getSedeId() );
+
+        UUID id = null;
+
+        UbicacionDomain ubicacionDomain = new UbicacionDomain( id, nombre, sede, tipoUbicacion );
+
+        return ubicacionDomain;
+    }
+}

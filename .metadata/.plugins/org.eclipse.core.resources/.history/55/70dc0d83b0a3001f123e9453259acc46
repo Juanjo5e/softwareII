@@ -1,0 +1,36 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.interactor.tipoubicacion.impl;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import co.edu.uco.deviuco.usuarios.application.primaryports.dto.RetrieveTipoUbicacionDTO;
+import co.edu.uco.deviuco.usuarios.application.primaryports.interactor.ubicacion.RetrieveUbicacionInteractor;
+import co.edu.uco.deviuco.usuarios.application.primaryports.mapper.TipoUbicacionDtoMapper;
+import co.edu.uco.deviuco.usuarios.application.usecase.tipoubicacion.RetrieveTipoUbicacion;
+import co.edu.uco.ucobet.generales.aplication.primaryports.dto.RetrieveStateDTO;
+import co.edu.uco.ucobet.generales.aplication.primaryports.interactor.state.RetrieveStateInteractor;
+import co.edu.uco.ucobet.generales.aplication.primaryports.mapper.StateDtoMapper;
+import co.edu.uco.ucobet.generales.aplication.usecase.state.RetrieveState;
+
+
+@Service
+@Transactional
+public class RetrieveTipoUbicacionInteractorImpl implements RetrieveUbicacionInteractor {
+
+	private RetrieveTipoUbicacion retrieveTipoUbicacion;
+
+	public RetrieveTipoUbicacionInteractorImpl(RetrieveTipoUbicacion retrieveTipoUbicacion ) {
+		this.retrieveTipoUbicacion = retrieveTipoUbicacion;
+	}
+
+	@Override
+	public List<RetrieveTipoUbicacionDTO> execute(RetrieveTipoUbicacionDTO data) {
+
+		var tipoUbicacionDomain = TipoUbicacionDtoMapper.INSTANCE.dtoToDomain(data);
+		var resultados = retrieveTipoUbicacion.execute(tipoUbicacionDomain);
+
+		return TipoUbicacionDtoMapper.INSTANCE.domainToDtoCollection(resultados);
+	}
+}

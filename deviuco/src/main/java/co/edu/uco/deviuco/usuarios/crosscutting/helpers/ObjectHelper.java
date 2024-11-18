@@ -1,6 +1,5 @@
 package co.edu.uco.deviuco.usuarios.crosscutting.helpers;
 
-
 public class ObjectHelper {
 
 	private ObjectHelper() {
@@ -14,6 +13,7 @@ public class ObjectHelper {
 	public static <O> O getDefault(final O object, final O defaultObject) {
 		return isNull(object) ? defaultObject : object;
 	}
+	
+	
 
 }
-

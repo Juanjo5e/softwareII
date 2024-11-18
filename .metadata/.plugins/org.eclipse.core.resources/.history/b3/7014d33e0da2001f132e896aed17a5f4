@@ -1,0 +1,23 @@
+package co.edu.uco.deviuco.usuarios.infrastructure.primaryadapters.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import co.edu.uco.deviuco.usuarios.application.secondaryports.redis.MessageCatalog;
+
+@RestController
+public class RedisTestController {
+
+    @Autowired
+    private MessageCatalog messageCatalog;
+
+    @GetMapping("/testRedis")
+    public String testRedis(@RequestParam String key, @RequestParam String value) {
+        messageCatalog.getMessageOrDefault(key); // Prueba obtener un mensaje no existente
+        messageCatalog.saveMessage(key, value); // Guarda un valor de prueba utilizando el método del servicio
+        return messageCatalog.getMessage(key); // Devuelve el valor guardado
+    }
+
+}

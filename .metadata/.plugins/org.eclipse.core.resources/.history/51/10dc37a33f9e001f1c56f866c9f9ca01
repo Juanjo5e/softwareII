@@ -1,5 +1,0 @@
-package co.edu.uco.deviuco.usuarios.application.primaryports.interactor.afiliado;
-
-public interface RegisterNewAfiliadoInteractor {
-
-}

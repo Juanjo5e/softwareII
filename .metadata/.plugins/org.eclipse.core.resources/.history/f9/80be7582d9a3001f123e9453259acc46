@@ -1,0 +1,28 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.interactor.sede.impl;
+
+import java.util.List;
+
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+
+@Service
+@Transactional
+public class RetrieveSedeInteractorImpl implements RetrieveStateInteractor {
+
+	private RetrieveState retrieveState;
+
+	public RetrieveStateInteractorImpl(RetrieveState retrieveState) {
+		this.retrieveState = retrieveState;
+	}
+
+	@Override
+	public List<RetrieveStateDTO> execute(RetrieveStateDTO data) {
+
+		var stateDomain = StateDtoMapper.INSTANCE.dtoToDomain(data);
+		var resultados = retrieveState.execute(stateDomain);
+
+		return StateDtoMapper.INSTANCE.domainToDtoCollection(resultados);
+	}
+}

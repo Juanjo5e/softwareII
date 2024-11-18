@@ -1,0 +1,20 @@
+package co.edu.uco.deviuco.usuarios.domain.ubicacion.exceptions;
+
+import co.edu.uco.ucobet.generales.crosscuting.exception.RuleUcoBetException;
+
+public class UbicacionNameFormatIsNotValidException extends RuleUcoBetException{
+
+	public UbicacionNameFormatIsNotValidException(String userMessage) {
+		super(userMessage, userMessage, new Exception());
+
+	}
+
+	private static final long serialVersionUID = 1L;
+	
+	public static final UbicacionNameFormatIsNotValidException create() {
+		var userMessage = "El formato del nombre no es valido...";
+		return new UbicacionNameFormatIsNotValidException(userMessage);
+	}
+
+
+}

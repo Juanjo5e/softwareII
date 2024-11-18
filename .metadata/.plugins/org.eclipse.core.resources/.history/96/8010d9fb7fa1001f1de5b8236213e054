@@ -1,0 +1,5 @@
+package co.edu.uco.deviuco.usuarios.application.secondaryports.emailsender;
+
+public interface NotificationInteractor {
+    void notifySuccess(String subject, String message);
+}

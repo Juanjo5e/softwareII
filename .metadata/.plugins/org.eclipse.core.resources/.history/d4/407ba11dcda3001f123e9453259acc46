@@ -1,0 +1,17 @@
+package co.edu.uco.deviuco.usuarios.domain.ubicacion.exceptions;
+
+import co.edu.uco.deviuco.usuarios.crosscutting.exception.RuleDeviUcoException;
+
+public class UbicacionSedeEsNulaException extends RuleDeviUcoException {
+
+    private static final long serialVersionUID = 1L;
+
+    public UbicacionSedeEsNulaException(String userMessage) {
+        super(userMessage, userMessage, new Exception());
+    }
+
+    public static final UbicacionSedeEsNulaException create() {
+        var userMessage = "La sede asociada a la ubicación no puede ser nula.";
+        return new UbicacionSedeEsNulaException(userMessage);
+    }
+}

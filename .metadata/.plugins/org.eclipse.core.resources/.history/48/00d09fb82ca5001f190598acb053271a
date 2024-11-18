@@ -1,0 +1,17 @@
+package co.edu.uco.deviuco.usuarios.domain.tipoubicacion.exceptions;
+
+import co.edu.uco.deviuco.usuarios.crosscutting.exception.RuleDeviUcoException;
+
+public class TipoUbicacionIdIsDefaultValueException extends RuleDeviUcoException {
+
+    private static final long serialVersionUID = 1L;
+
+    public TipoUbicacionIdIsDefaultValueException(String userMessage) {
+        super(userMessage, userMessage, new Exception());
+    }
+
+    public static final TipoUbicacionIdIsDefaultValueException create() {
+        var userMessage = "El ID del tipo de ubicación tiene un valor por defecto no permitido.";
+        return new TipoUbicacionIdIsDefaultValueException(userMessage);
+    }
+}

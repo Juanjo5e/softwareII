@@ -1,0 +1,34 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.interactor.departamento.impl;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import co.edu.uco.deviuco.usuarios.application.primaryports.dto.sede.RetrieveDepartamentoDTO;
+import co.edu.uco.deviuco.usuarios.application.primaryports.interactor.departamento.RetrieveDepartamentoInteractor;
+import co.edu.uco.ucobet.generales.aplication.primaryports.dto.RetrieveStateDTO;
+import co.edu.uco.ucobet.generales.aplication.primaryports.interactor.state.RetrieveStateInteractor;
+import co.edu.uco.ucobet.generales.aplication.primaryports.mapper.StateDtoMapper;
+import co.edu.uco.ucobet.generales.aplication.usecase.state.RetrieveState;
+
+
+@Service
+@Transactional
+public class RetrieveDepartamentoInteractorImpl implements RetrieveDepartamentoInteractor {
+
+	private RetrieveDepartamento retrieveDepartamento;
+
+	public RetrieveDepartamentoInteractorImpl(RetrieveDepartamento retrieveDepartamento) {
+		this.retrieveDepartamento = retrieveDepartamento;
+	}
+
+	@Override
+	public List<RetrieveDepartamentoDTO> execute(RetrieveDepartamentoDTO data) {
+
+		var departamentoDomain = DepartamentoDtoMapper.INSTANCE.dtoToDomain(data);
+		var resultados = retrieveDepartamento.execute(departamentoDomain);
+
+		return DepartamentoDtoMapper.INSTANCE.domainToDtoCollection(resultados);
+	}
+}

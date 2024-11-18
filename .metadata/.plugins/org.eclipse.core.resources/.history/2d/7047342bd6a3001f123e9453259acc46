@@ -1,0 +1,27 @@
+package co.edu.uco.deviuco.usuarios.domain.tipoubicacion.rules.impl;
+
+import java.util.UUID;
+
+
+import org.springframework.stereotype.Service;
+
+
+@Service
+public class TipoUbicacionDoesExistsRuleImpl implements TipoUbicacionDoesExistsRule {
+
+	private final StateRepository stateRepository;
+	
+	public StateDoesExistsRuleImpl(StateRepository stateRepository) {
+		this.stateRepository = stateRepository;
+	}
+	
+	
+	@Override
+	public void validate(UUID data) {
+		if(!stateRepository.existsById(data)) {
+			throw UbicacionSedeDoesNotExistsException.create();
+		}
+		
+	}
+
+}

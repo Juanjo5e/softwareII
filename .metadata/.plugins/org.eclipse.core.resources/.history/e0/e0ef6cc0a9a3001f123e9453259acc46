@@ -1,0 +1,49 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.dto.sede;
+
+import java.util.UUID;
+
+import co.edu.uco.deviuco.usuarios.crosscutting.helpers.TextHelper;
+import co.edu.uco.deviuco.usuarios.crosscutting.helpers.UUIDHelper;
+
+public class RegisterNewUbicacionDTO {
+	private String ubicacionNombre;
+	private UUID ciudadId;
+	private UUID tipoUbicacionId;
+
+	
+
+	public RegisterNewUbicacionDTO(final String ubicacionNombre, final UUID ciudadId,final UUID  tipoUbicacionId) {
+		setUbicacionNombre(ubicacionNombre);
+		setTipoUbicacionId(tipoUbicacionId);
+		setCiudadId(ciudadId);
+	}
+	
+	public static RegisterNewUbicacionDTO create(final String ubicacionNombre, final UUID ciudadId,final UUID tipoUbicacionId) {
+		return new RegisterNewUbicacionDTO(ubicacionNombre, ciudadId, tipoUbicacionId);
+	}
+
+	private void setUbicacionNombre(String ubicacionNombre) {
+		this.ubicacionNombre = TextHelper.applyTrim(ubicacionNombre);
+	}
+
+	private void setCiudadId(UUID ciudadId) {
+		this.ciudadId = UUIDHelper.getDefault(ciudadId, UUIDHelper.getDefault());
+	}
+	
+	private void setTipoUbicacionId(UUID tipoUbicacionId) {
+		this.tipoUbicacionId = UUIDHelper.getDefault(tipoUbicacionId, UUIDHelper.getDefault());
+		
+	}	
+	public String getUbicacionNombre() {
+		return ubicacionNombre;
+	}
+
+	public UUID getCiudadId() {
+		return ciudadId;
+	}
+	
+	public UUID getTipoUbicacionId() {
+		return tipoUbicacionId;
+	}
+
+}

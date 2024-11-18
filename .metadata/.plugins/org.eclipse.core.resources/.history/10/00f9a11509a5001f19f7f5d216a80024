@@ -1,0 +1,70 @@
+package co.edu.uco.deviuco.usuarios.application.usecase.afiliado.impl;
+
+import org.springframework.stereotype.Service;
+
+import co.edu.uco.deviuco.usuarios.application.usecase.afiliado.RegisterNewAfiliadoRulesValidator;
+import co.edu.uco.deviuco.usuarios.application.usecase.afiliado.RegisterNewAfiliadoTipoIdentificacionRulesValidator;
+import co.edu.uco.deviuco.usuarios.application.usecase.afiliado.registrer.RegisterNewAfiliadoCorreoNoExisteRulesValidator;
+import co.edu.uco.deviuco.usuarios.application.usecase.afiliado.registrer.RegisterNewAfiliadoCorreoRulesValidator;
+import co.edu.uco.deviuco.usuarios.application.usecase.afiliado.registrer.RegisterNewAfiliadoIdRulesValidator;
+import co.edu.uco.deviuco.usuarios.application.usecase.afiliado.registrer.RegisterNewAfiliadoNameRulesValidator;
+import co.edu.uco.deviuco.usuarios.application.usecase.afiliado.RegisterNewAfiliadoNumeroIdRulesValidator;
+import co.edu.uco.deviuco.usuarios.application.usecase.afiliado.RegisterNewAfiliadoTelefonoRulesValidator;
+import co.edu.uco.deviuco.usuarios.application.usecase.afiliado.RegisterNewAfiliadoPinRulesValidator;
+import co.edu.uco.deviuco.usuarios.domain.afiliado.AfiliadoDomain;
+import co.edu.uco.deviuco.usuarios.domain.afiliado.rules.AfiliadoIdentificacionDuplicadaRule;
+import co.edu.uco.deviuco.usuarios.application.usecase.afiliado.RegisterNewAfiliadoTelefonoNoExisteRulesValidator;
+
+@Service
+public final class RegisterNewAfiliadoRulesValidatorImpl implements RegisterNewAfiliadoRulesValidator {
+	
+	private final RegisterNewAfiliadoIdRulesValidator registerNewAfiliadoIdRulesValidator;
+	private final RegisterNewAfiliadoNameRulesValidator registerNewAfiliadoNameRulesValidator;
+	private final RegisterNewAfiliadoNumeroIdRulesValidator registerNewAfiliadoNumeroIdRulesValidator;
+	private final RegisterNewAfiliadoTipoIdentificacionRulesValidator registerNewAfiliadoTipoIdentificacionRulesValidator;
+	private final RegisterNewAfiliadoCorreoRulesValidator registerNewAfiliadoCorreoRulesValidator;
+	private final RegisterNewAfiliadoTelefonoRulesValidator registerNewAfiliadoTelefonoRulesValidator;
+	private final RegisterNewAfiliadoPinRulesValidator registerNewAfiliadoPinRulesValidator;
+	private final AfiliadoIdentificacionDuplicadaRule afiliadoIdentificacionDuplicadaRule;
+	private final RegisterNewAfiliadoCorreoNoExisteRulesValidator registerNewAfiliadoCorreoNoExisteRulesValidator;
+	private final RegisterNewAfiliadoTelefonoNoExisteRulesValidator registerNewAfiliadoTelefonoNoExisteRulesValidator;
+	
+	public RegisterNewAfiliadoRulesValidatorImpl(final RegisterNewAfiliadoIdRulesValidator registerNewAfiliadoIdRulesValidator,
+			final RegisterNewAfiliadoNameRulesValidator registerNewAfiliadoNameRulesValidator,
+			final RegisterNewAfiliadoNumeroIdRulesValidator registerNewAfiliadoNumeroIdRulesValidator,
+			final RegisterNewAfiliadoTipoIdentificacionRulesValidator registerNewAfiliadoTipoIdentificacionRulesValidator,
+			final RegisterNewAfiliadoCorreoRulesValidator registerNewAfiliadoCorreoRulesValidator,
+			final RegisterNewAfiliadoTelefonoRulesValidator registerNewAfiliadoTelefonoRulesValidator,
+			final RegisterNewAfiliadoPinRulesValidator registerNewAfiliadoPinRulesValidator,
+			final AfiliadoIdentificacionDuplicadaRule afiliadoIdentificacionDuplicadaRule,
+			final RegisterNewAfiliadoCorreoNoExisteRulesValidator registerNewAfiliadoCorreoNoExisteRulesValidator,
+			final RegisterNewAfiliadoTelefonoNoExisteRulesValidator registerNewAfiliadoTelefonoNoExisteRulesValidator) {
+		this.registerNewAfiliadoIdRulesValidator = registerNewAfiliadoIdRulesValidator;
+		this.registerNewAfiliadoNameRulesValidator = registerNewAfiliadoNameRulesValidator;
+		this.registerNewAfiliadoNumeroIdRulesValidator = registerNewAfiliadoNumeroIdRulesValidator;
+		this.registerNewAfiliadoTipoIdentificacionRulesValidator = registerNewAfiliadoTipoIdentificacionRulesValidator;
+		this.registerNewAfiliadoCorreoRulesValidator = registerNewAfiliadoCorreoRulesValidator;
+		this.registerNewAfiliadoTelefonoRulesValidator = registerNewAfiliadoTelefonoRulesValidator;
+		this.registerNewAfiliadoPinRulesValidator = registerNewAfiliadoPinRulesValidator;
+		this.afiliadoIdentificacionDuplicadaRule = afiliadoIdentificacionDuplicadaRule;
+		this.registerNewAfiliadoCorreoNoExisteRulesValidator = registerNewAfiliadoCorreoNoExisteRulesValidator;
+		this.registerNewAfiliadoTelefonoNoExisteRulesValidator = registerNewAfiliadoTelefonoNoExisteRulesValidator;
+	}
+
+
+	@Override
+	public void validate(final AfiliadoDomain data) {
+		registerNewAfiliadoIdRulesValidator.validate(data);
+		registerNewAfiliadoNameRulesValidator.validate(data);
+		registerNewAfiliadoNumeroIdRulesValidator.validate(data);
+		registerNewAfiliadoTipoIdentificacionRulesValidator.validate(data.getTipoIdentificacion().getId());
+		registerNewAfiliadoCorreoRulesValidator.validate(data);
+		registerNewAfiliadoTelefonoRulesValidator.validate(data);
+		registerNewAfiliadoPinRulesValidator.validate(data);
+		afiliadoIdentificacionDuplicadaRule.validate(data);
+		registerNewAfiliadoCorreoNoExisteRulesValidator.validate(data);
+		registerNewAfiliadoTelefonoNoExisteRulesValidator.validate(data);
+
+	}
+
+}

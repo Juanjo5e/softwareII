@@ -1,7 +1,0 @@
-package co.edu.uco.deviuco.usuarios.application.usecase.tipoidentificacion.impl;
-
-import co.edu.uco.deviuco.usuarios.application.usecase.UseCaseWhitReturn;
-
-public class RetrieveTipoIdentificacionImpl extends UseCaseWhitReturn<TipoIdentificacionDomain, List<TipoIdentificacionDomain>>{
-
-}

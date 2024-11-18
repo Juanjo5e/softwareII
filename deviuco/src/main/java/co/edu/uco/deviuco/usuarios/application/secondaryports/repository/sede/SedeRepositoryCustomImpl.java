@@ -1,0 +1,57 @@
+package co.edu.uco.deviuco.usuarios.application.secondaryports.repository.sede;
+
+import java.util.ArrayList;
+
+import java.util.List;
+
+import co.edu.uco.deviuco.usuarios.application.secondaryports.entity.SedeEntity;
+import co.edu.uco.deviuco.usuarios.crosscutting.exception.RepositoryDeviUcoException;
+import co.edu.uco.deviuco.usuarios.crosscutting.helpers.ObjectHelper;
+import co.edu.uco.deviuco.usuarios.crosscutting.helpers.TextHelper;
+import co.edu.uco.deviuco.usuarios.crosscutting.helpers.UUIDHelper;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.criteria.Predicate;
+
+public class SedeRepositoryCustomImpl implements SedeRepositoryCustom{
+	
+	private EntityManager entityManager;
+
+	public SedeRepositoryCustomImpl(final EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+
+	@Override
+	public List<SedeEntity> findByfilter(SedeEntity filter) {
+	    try {
+	        var criteriaBuilder = entityManager.getCriteriaBuilder();
+	        var query = criteriaBuilder.createQuery(SedeEntity.class);
+	        var result = query.from(SedeEntity.class);
+
+	        var predicates = new ArrayList<Predicate>();
+
+	        if (!ObjectHelper.isNull(filter)) {
+	            if (!UUIDHelper.isDefault(filter.getId())) {
+	                predicates.add(criteriaBuilder.equal(result.get("id"), filter.getId()));
+	            }
+
+	            if (!TextHelper.isEmpty(filter.getNombre())) {
+	                predicates.add(criteriaBuilder.equal(result.get("nombre"), filter.getNombre()));
+	            }
+
+	            if (!UUIDHelper.isDefault(filter.getInstitucion().getId())) {
+	                predicates.add(criteriaBuilder.equal(result.get("institucion"), filter.getInstitucion().getId()));
+	            }
+	            if (!UUIDHelper.isDefault(filter.getCiudad().getId())) {
+	                predicates.add(criteriaBuilder.equal(result.get("ciudad"), filter.getCiudad().getId()));
+	            }
+	        }
+
+	        query.select(result).where(criteriaBuilder.and(predicates.toArray(new Predicate[0])));
+	        return entityManager.createQuery(query).getResultList();
+
+	    } catch (final Exception exception) {
+	        throw RepositoryDeviUcoException.create(null, null, exception);
+	    }
+	}
+
+}

@@ -1,0 +1,17 @@
+package co.edu.uco.deviuco.usuarios.domain.afiliado.exceptions;
+
+import co.edu.uco.deviuco.usuarios.crosscutting.exception.RuleDeviUcoException;
+
+public class AfiliadoIdentificacionDuplicadaException extends RuleDeviUcoException {
+
+    private static final long serialVersionUID = 1L;
+
+    public AfiliadoIdentificacionDuplicadaException(String userMessage) {
+        super(userMessage, userMessage, new Exception());
+    }
+
+    public static final AfiliadoIdentificacionDuplicadaException create() {
+        var userMessage = "Ya existe un afiliado con este tipo y número de identificación.";
+        return new AfiliadoIdentificacionDuplicadaException(userMessage);
+    }
+}

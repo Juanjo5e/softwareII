@@ -1,0 +1,20 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.interactor.ubicacion.impl;
+
+public class RegisterNewUbicacionInteractorImpl implements RegisterNewUbicacionInteractor {
+
+	private RegisterNewUbicacion registerNewUbicacion;
+
+	public RegisterNewUbicacionInteractorImpl(final RegisterNewUbicacion registerNewUbicacion) {
+		this.registerNewUbicacion = registerNewUbicacion;
+	}
+
+	@Override
+	public void execute(final RegisterNewUbicacionDTO data) {
+
+		// DataMapper -> DTO -> Domain
+		var ubicacionDomain = RegisterNewUbicacionMapper.INSTANCE.toDomain(data);
+		registerNewUbicacion.execute(ubicacionDomain);
+
+	}
+
+}

@@ -1,0 +1,19 @@
+package co.edu.uco.deviuco.usuarios.application.secondaryports.mapper;
+
+import java.util.List;
+
+import co.edu.uco.deviuco.usuarios.application.secondaryports.entity.InstitucionEntity;
+
+public interface InstitucionEntityMapper {
+
+	InstitucionEntityMapper INSTANCE = Mappers.getMapper(InstitucionEntityMapper.class);
+
+	InstitucionDomain entityToDomain(InstitucionEntity entity);
+
+	InstitucionEntity domainToEntity(InstitucionDomain domain);
+
+	List<InstitucionEntity> domainToEntityCollection(List<InstitucionDomain> domainCollection);
+
+	List<InstitucionDomain> entityToDomainCollection(List<InstitucionEntity> entityCollection);
+
+}

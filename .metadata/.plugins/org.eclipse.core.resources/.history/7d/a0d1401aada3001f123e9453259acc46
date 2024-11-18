@@ -1,0 +1,74 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.dto.sede;
+
+import java.util.UUID;
+
+import co.edu.uco.deviuco.usuarios.application.primaryports.dto.PaisDTO;
+import co.edu.uco.deviuco.usuarios.crosscutting.helpers.TextHelper;
+import co.edu.uco.deviuco.usuarios.crosscutting.helpers.UUIDHelper;
+
+public class RetrieveDepartamentoDTO {
+	
+	private UUID id; 
+	private String nombre;
+	private PaisDTO pais;
+	
+	public RetrieveDepartamentoDTO() {
+		setId(UUIDHelper.getDefault());
+		setNombre(TextHelper.EMPTY);
+		setPais(pais);
+	}
+	
+	
+	
+	public RetrieveDepartamentoDTO(UUID id, String nombre, PaisDTO pais) {
+		setId(id);
+		setNombre(nombre);
+		setPais(pais);
+	}
+	
+	public static RetrieveDepartamentoDTO create () {
+		return new RetrieveDepartamentoDTO();
+	}
+	
+	public static  RetrieveDepartamentoDTO create(UUID id, String nombre, PaisDTO pais) {
+		return new RetrieveDepartamentoDTO(id, nombre, pais);
+		
+	}
+
+
+	public UUID getId() {
+		return id;
+	}
+
+
+
+	public void setId(UUID id) {
+		this.id = UUIDHelper.getDefault(id, UUIDHelper.getDefault());
+	}
+
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+
+	public void setNombre(String nombre) {
+		this.nombre = TextHelper.applyTrim(nombre);
+	}
+
+
+
+	public PaisDTO getPais() {
+		return pais;
+	}
+
+
+
+	public void setPais(PaisDTO pais) {
+		this.pais = pais;
+	}
+	
+
+}

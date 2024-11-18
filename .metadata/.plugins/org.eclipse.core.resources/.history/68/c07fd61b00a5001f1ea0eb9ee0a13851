@@ -1,0 +1,75 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.mapper;
+
+import co.edu.uco.deviuco.usuarios.application.primaryports.dto.RetrieveTipoUbicacionDTO;
+import co.edu.uco.deviuco.usuarios.domain.tipoubicacion.TipoUbicacionDomain;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import javax.annotation.processing.Generated;
+
+@Generated(
+    value = "org.mapstruct.ap.MappingProcessor",
+    date = "2024-11-16T19:59:51-0500",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.40.0.z20241023-1306, environment: Java 17.0.13 (Eclipse Adoptium)"
+)
+public class TipoUbicacionDtoMapperImpl implements TipoUbicacionDtoMapper {
+
+    @Override
+    public TipoUbicacionDomain dtoToDomain(RetrieveTipoUbicacionDTO dto) {
+        if ( dto == null ) {
+            return null;
+        }
+
+        UUID id = null;
+        String nombre = null;
+
+        id = dto.getId();
+        nombre = dto.getNombre();
+
+        TipoUbicacionDomain tipoUbicacionDomain = new TipoUbicacionDomain( id, nombre );
+
+        return tipoUbicacionDomain;
+    }
+
+    @Override
+    public RetrieveTipoUbicacionDTO domainToDto(TipoUbicacionDomain domain) {
+        if ( domain == null ) {
+            return null;
+        }
+
+        RetrieveTipoUbicacionDTO retrieveTipoUbicacionDTO = new RetrieveTipoUbicacionDTO();
+
+        retrieveTipoUbicacionDTO.setId( domain.getId() );
+        retrieveTipoUbicacionDTO.setNombre( domain.getNombre() );
+
+        return retrieveTipoUbicacionDTO;
+    }
+
+    @Override
+    public List<RetrieveTipoUbicacionDTO> domainToDtoCollection(List<TipoUbicacionDomain> domainCollection) {
+        if ( domainCollection == null ) {
+            return null;
+        }
+
+        List<RetrieveTipoUbicacionDTO> list = new ArrayList<RetrieveTipoUbicacionDTO>( domainCollection.size() );
+        for ( TipoUbicacionDomain tipoUbicacionDomain : domainCollection ) {
+            list.add( domainToDto( tipoUbicacionDomain ) );
+        }
+
+        return list;
+    }
+
+    @Override
+    public List<TipoUbicacionDomain> dtoToDomainCollection(List<RetrieveTipoUbicacionDTO> entityCollection) {
+        if ( entityCollection == null ) {
+            return null;
+        }
+
+        List<TipoUbicacionDomain> list = new ArrayList<TipoUbicacionDomain>( entityCollection.size() );
+        for ( RetrieveTipoUbicacionDTO retrieveTipoUbicacionDTO : entityCollection ) {
+            list.add( dtoToDomain( retrieveTipoUbicacionDTO ) );
+        }
+
+        return list;
+    }
+}

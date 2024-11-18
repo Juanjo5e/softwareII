@@ -1,0 +1,19 @@
+package co.edu.uco.deviuco.usuarios.domain.afiliado.exceptions;
+
+
+import co.edu.uco.deviuco.usuarios.crosscutting.exception.RuleDeviUcoException;
+
+public class AfiliadoTipoIdentificacionDoesNotExistsException extends RuleDeviUcoException{
+
+	public AfiliadoTipoIdentificacionDoesNotExistsException(String userMessage) {
+		super(userMessage, userMessage, new Exception());
+	}
+
+	private static final long serialVersionUID = 1L;
+	
+	public static final AfiliadoTipoIdentificacionDoesNotExistsException create() {
+		var userMessage = "El tipo de identificacion asociado a al afiliado no existe...";
+		return new AfiliadoTipoIdentificacionDoesNotExistsException(userMessage);
+	}
+
+}

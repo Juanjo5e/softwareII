@@ -1,0 +1,110 @@
+
+package co.edu.uco.deviuco.usuarios.infrastructure.primaryadapters.controller;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import co.edu.uco.deviuco.usuarios.application.primaryports.dto.AfiliadoDTO;
+import co.edu.uco.deviuco.usuarios.application.primaryports.dto.RegisterNewAfiliadoDTO;
+import co.edu.uco.deviuco.usuarios.application.primaryports.interactor.afiliado.RegisterNewAfiliadoInteractor;
+import co.edu.uco.deviuco.usuarios.application.primaryports.interactor.afiliado.RetrieveAfiliadoInteractor;
+import co.edu.uco.deviuco.usuarios.crosscutting.exception.DeviUcoException;
+import co.edu.uco.deviuco.usuarios.infrastructure.primaryadapters.controller.response.AfiliadoResponse;
+import co.edu.uco.deviuco.usuarios.infrastructure.secondaryports.MessageService;
+
+@RestController
+@RequestMapping("/general/api/v1/usuarios")
+@CrossOrigin(origins = "http://localhost:8080")
+public class RegisterNewAfiliadoController {
+	
+
+
+	private final RegisterNewAfiliadoInteractor registerNewAfiliadoInteractor;
+	private final RetrieveAfiliadoInteractor retrieveAfiliadoInteractor;
+	private final MessageService messageService;
+
+	
+	
+	public RegisterNewAfiliadoController(final RegisterNewAfiliadoInteractor registerNewAfiliadoInteractor,
+			final RetrieveAfiliadoInteractor retrieveAfiliadoInteractor, final MessageService messageService) {
+		this.registerNewAfiliadoInteractor = registerNewAfiliadoInteractor;
+		this.retrieveAfiliadoInteractor = retrieveAfiliadoInteractor;
+		this.messageService = messageService;
+	}
+	/*@PostMapping
+	public ResponseEntity<AfiliadoResponse> crear(@RequestBody RegisterNewAfiliadoDTO dto) {
+		System.out.println(dto);
+	    System.out.println("Datos recibidos en el controlador:");
+	    System.out.println("Numero ID Afiliado: " + dto.getNumeroIdAfiliado());
+	    System.out.println("Tipo Identificacion ID: " + dto.getTipoIdentificacionId());
+
+	    var httpStatusCode = HttpStatus.CREATED;
+	    var afiliadoResponse = new AfiliadoResponse();
+
+	    try {
+	        registerNewAfiliadoInteractor.execute(dto);
+	        afiliadoResponse.getMensajes().add("Afiliado registrado exitosamente");
+
+	    } catch (final DeviUcoException excepcion) {
+	        httpStatusCode = HttpStatus.BAD_REQUEST;
+	        afiliadoResponse.getMensajes().add(excepcion.getUserMessage());
+
+	    } catch (final Exception excepcion) {
+	        httpStatusCode = HttpStatus.INTERNAL_SERVER_ERROR;
+	        afiliadoResponse.getMensajes().add("Error al crear el afiliado");
+	    }
+
+	    return new ResponseEntity<>(afiliadoResponse, httpStatusCode);
+	}*/
+
+
+	@PostMapping
+	public ResponseEntity<AfiliadoResponse> crear(@RequestBody RegisterNewAfiliadoDTO dto) {
+		var httpStatusCode = HttpStatus.CREATED;
+		var afiliadoResponse = new AfiliadoResponse();
+
+		try {
+			registerNewAfiliadoInteractor.execute(dto);
+			afiliadoResponse.getMensajes().add(messageService.getMessageContent("cuenta_ok"));
+			
+
+		} catch (final DeviUcoException excepcion) {
+			httpStatusCode = HttpStatus.BAD_REQUEST;
+			afiliadoResponse.getMensajes().add(excepcion.getUserMessage());
+
+		} catch (final Exception excepcion) {
+			httpStatusCode = HttpStatus.INTERNAL_SERVER_ERROR;
+			afiliadoResponse.getMensajes().add("cuenta creada");
+		}
+
+		return new ResponseEntity<>(afiliadoResponse, httpStatusCode);
+	}
+
+	@GetMapping
+	public ResponseEntity<AfiliadoResponse> consultar() {
+		var httpStatusCode = HttpStatus.ACCEPTED;
+		var afiliadoResponse = new AfiliadoResponse();
+		try {
+			var cityDto = AfiliadoDTO.create();
+			afiliadoResponse.setDatos(retrieveAfiliadoInteractor.execute(cityDto));
+			afiliadoResponse.getMensajes().add("hola");
+		} catch (final DeviUcoException exception) {
+			httpStatusCode = HttpStatus.BAD_REQUEST;
+			afiliadoResponse.getMensajes().add("hola2");
+			exception.printStackTrace();
+
+		} catch (final Exception exception) {
+			httpStatusCode = HttpStatus.INTERNAL_SERVER_ERROR;
+
+			afiliadoResponse.getMensajes().add("hola3");
+			exception.printStackTrace();
+		}
+		return new ResponseEntity<>(afiliadoResponse, httpStatusCode);
+	}
+}

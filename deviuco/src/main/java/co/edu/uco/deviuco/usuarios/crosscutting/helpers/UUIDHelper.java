@@ -1,6 +1,5 @@
 package co.edu.uco.deviuco.usuarios.crosscutting.helpers;
 
-
 import java.util.UUID;
 
 public final class UUIDHelper {

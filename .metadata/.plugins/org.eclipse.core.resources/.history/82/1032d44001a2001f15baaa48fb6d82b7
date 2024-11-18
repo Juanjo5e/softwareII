@@ -1,0 +1,44 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.mapper;
+
+import co.edu.uco.deviuco.usuarios.application.primaryports.dto.RegisterNewAfiliadoDTO;
+import co.edu.uco.deviuco.usuarios.domain.afiliado.AfiliadoDomain;
+import co.edu.uco.deviuco.usuarios.domain.tipoidentificacion.TipoIdentificacionDomain;
+import java.util.UUID;
+import javax.annotation.processing.Generated;
+import org.springframework.stereotype.Component;
+
+@Generated(
+    value = "org.mapstruct.ap.MappingProcessor",
+    date = "2024-11-13T15:34:28-0500",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.40.0.z20241023-1306, environment: Java 17.0.13 (Eclipse Adoptium)"
+)
+@Component
+public class RegisterNewAfiliadoMapperImpl implements RegisterNewAfiliadoMapper {
+
+    @Override
+    public AfiliadoDomain toDomain(RegisterNewAfiliadoDTO dto) {
+        if ( dto == null ) {
+            return null;
+        }
+
+        String numeroIdAfiliado = null;
+        String nombre = null;
+        String correo = null;
+        String telefono = null;
+        String pin = null;
+        TipoIdentificacionDomain tipoIdentificacion = null;
+
+        numeroIdAfiliado = dto.getNumeroIdAfiliado();
+        nombre = dto.getNombre();
+        correo = dto.getCorreo();
+        telefono = dto.getTelefono();
+        pin = dto.getPin();
+        tipoIdentificacion = mapToTipoIdentificacionDomain( dto.getTipoIdentificacionId() );
+
+        UUID id = null;
+
+        AfiliadoDomain afiliadoDomain = new AfiliadoDomain( id, numeroIdAfiliado, nombre, correo, telefono, pin, tipoIdentificacion );
+
+        return afiliadoDomain;
+    }
+}

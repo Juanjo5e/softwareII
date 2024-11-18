@@ -1,0 +1,25 @@
+package co.edu.uco.deviuco.usuarios.domain.ubicacion.rules.impl;
+
+
+import org.springframework.stereotype.Service;
+
+import co.edu.uco.deviuco.usuarios.domain.ubicacion.rules.UbicacionNameIsNotEqualsRule;
+
+@Service
+public class UbicacionNameIsNotEqualsRuleImpl implements UbicacionNameIsNotEqualsRule {
+	
+	private CityRepository cityRepository;
+	
+	public CityNameIsNotEqualsRuleImpl(CityRepository cityRepository) {
+		this.cityRepository = cityRepository;
+	}
+
+	@Override
+	public void validate(String data) {
+		if(cityRepository.existsByNameIgnoreCase(data)) {
+			throw UbicacionNameIsEqualsException.create();
+		}
+		
+	}
+
+}

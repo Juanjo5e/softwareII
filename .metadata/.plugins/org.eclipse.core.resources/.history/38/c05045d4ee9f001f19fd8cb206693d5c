@@ -1,0 +1,90 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.mapper;
+
+import co.edu.uco.deviuco.usuarios.application.primaryports.dto.AfiliadoDTO;
+import co.edu.uco.deviuco.usuarios.domain.afiliado.AfiliadoDomain;
+import co.edu.uco.deviuco.usuarios.domain.tipoidentificacion.TipoIdentificacionDomain;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import javax.annotation.processing.Generated;
+
+@Generated(
+    value = "org.mapstruct.ap.MappingProcessor",
+    date = "2024-11-10T23:40:25-0500",
+    comments = "version: 1.6.2, compiler: Eclipse JDT (IDE) 3.40.0.z20241023-1306, environment: Java 17.0.13 (Eclipse Adoptium)"
+)
+public class AfiliadoDtoMapperImpl implements AfiliadoDtoMapper {
+
+    @Override
+    public AfiliadoDomain dtoToDomain(AfiliadoDTO dto) {
+        if ( dto == null ) {
+            return null;
+        }
+
+        UUID id = null;
+        String nombre = null;
+        String numeroIdAfiliado = null;
+        String correo = null;
+        String telefono = null;
+        String pin = null;
+
+        id = dto.getId();
+        nombre = dto.getNombre();
+        numeroIdAfiliado = dto.getNumeroIdAfiliado();
+        correo = dto.getCorreo();
+        telefono = dto.getTelefono();
+        pin = dto.getPin();
+
+        TipoIdentificacionDomain tipoIdentificacion = null;
+
+        AfiliadoDomain afiliadoDomain = new AfiliadoDomain( id, nombre, numeroIdAfiliado, correo, telefono, pin, tipoIdentificacion );
+
+        return afiliadoDomain;
+    }
+
+    @Override
+    public AfiliadoDTO domainToDto(AfiliadoDomain domain) {
+        if ( domain == null ) {
+            return null;
+        }
+
+        AfiliadoDTO afiliadoDTO = new AfiliadoDTO();
+
+        afiliadoDTO.setId( domain.getId() );
+        afiliadoDTO.setNumeroIdAfiliado( domain.getNumeroIdAfiliado() );
+        afiliadoDTO.setNombre( domain.getNombre() );
+        afiliadoDTO.setCorreo( domain.getCorreo() );
+        afiliadoDTO.setTelefono( domain.getTelefono() );
+        afiliadoDTO.setPin( domain.getPin() );
+
+        return afiliadoDTO;
+    }
+
+    @Override
+    public List<AfiliadoDTO> domainToDtoCollection(List<AfiliadoDomain> domainCollection) {
+        if ( domainCollection == null ) {
+            return null;
+        }
+
+        List<AfiliadoDTO> list = new ArrayList<AfiliadoDTO>( domainCollection.size() );
+        for ( AfiliadoDomain afiliadoDomain : domainCollection ) {
+            list.add( domainToDto( afiliadoDomain ) );
+        }
+
+        return list;
+    }
+
+    @Override
+    public List<AfiliadoDomain> dtoToDomainCollection(List<AfiliadoDTO> entityCollection) {
+        if ( entityCollection == null ) {
+            return null;
+        }
+
+        List<AfiliadoDomain> list = new ArrayList<AfiliadoDomain>( entityCollection.size() );
+        for ( AfiliadoDTO afiliadoDTO : entityCollection ) {
+            list.add( dtoToDomain( afiliadoDTO ) );
+        }
+
+        return list;
+    }
+}

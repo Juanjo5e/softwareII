@@ -1,0 +1,26 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.mapper;
+
+
+import java.util.UUID;
+
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Named;
+import org.mapstruct.factory.Mappers;
+
+
+
+public interface RegisterNewUbicacionMapper{
+	
+	
+RegisterNewUbicacionMapper INSTANCE = Mappers.getMapper(RegisterNewUbicacionMapper.class);
+
+@Mapping(source = "cityName", target = "name")
+@Mapping(source = "stateId", target = "state", qualifiedByName = "mapToTipoUbicacionDomain")
+UbicacionDomain toDomain(RegisterNewUbicacionDTO dto);
+
+@Named("mapToTipoUbicacionDomain")
+default TipoUbicacionDomain mapToTipoUbicacionDomain(UUID stateId) {
+	return new TipoUbicacionDomain(stateId, null, null);
+}
+}

@@ -1,0 +1,16 @@
+package co.edu.uco.deviuco.usuarios.domain.afiliado.rules.impl;
+
+import org.springframework.stereotype.Service;
+import co.edu.uco.deviuco.usuarios.domain.afiliado.exceptions.AfiliadoNameIsNullException;
+import co.edu.uco.deviuco.usuarios.domain.afiliado.rules.AfiliadoNameIsNotNullRule;
+
+@Service
+public class AfiliadoNameIsNotNullRuleImpl implements AfiliadoNameIsNotNullRule {
+
+	@Override
+	public void validate(String nombre) {
+		if (nombre == null || nombre.trim().isEmpty()) {
+			throw AfiliadoNameIsNullException.create();
+		}
+	}
+}

@@ -1,0 +1,7 @@
+package co.edu.uco.deviuco.usuarios.application.secondaryports.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UbicacionRepository extends JpaRepository<UbicacionEntity, UUID>, UbicacionRepositoryCustom{
+
+}

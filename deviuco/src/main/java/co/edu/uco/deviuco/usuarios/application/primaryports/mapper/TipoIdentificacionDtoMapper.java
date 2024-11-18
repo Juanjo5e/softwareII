@@ -9,7 +9,6 @@ import co.edu.uco.deviuco.usuarios.application.primaryports.dto.RetriveTipoIdent
 import co.edu.uco.deviuco.usuarios.domain.tipoidentificacion.TipoIdentificacionDomain;
 
 @Mapper
-
 public interface TipoIdentificacionDtoMapper {
 
 	TipoIdentificacionDtoMapper INSTANCE = Mappers.getMapper(TipoIdentificacionDtoMapper.class);

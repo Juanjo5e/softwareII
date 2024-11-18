@@ -1,0 +1,17 @@
+package co.edu.uco.deviuco.usuarios.domain.afiliado.exceptions;
+
+import co.edu.uco.deviuco.usuarios.crosscutting.exception.RuleDeviUcoException;
+public class AfiliadoIdDoesNotExistsException  extends RuleDeviUcoException {
+
+	public AfiliadoIdDoesNotExistsException(String userMessage) {
+		super(userMessage, userMessage, new Exception());
+	}
+
+	private static final long serialVersionUID = 1L;
+	
+	public static final AfiliadoIdDoesNotExistsException create() {
+		var userMessage = "No existe el afiliado con el id indicado...";
+		return new AfiliadoIdDoesNotExistsException(userMessage);
+	}
+
+}

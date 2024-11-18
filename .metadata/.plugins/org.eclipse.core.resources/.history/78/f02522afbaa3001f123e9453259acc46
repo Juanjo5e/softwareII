@@ -1,0 +1,8 @@
+package co.edu.uco.deviuco.usuarios.application.secondaryports.repository;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface SedeRepository extends JpaRepository<StateEntity, UUID>, StateRepositoryCustom {
+
+}

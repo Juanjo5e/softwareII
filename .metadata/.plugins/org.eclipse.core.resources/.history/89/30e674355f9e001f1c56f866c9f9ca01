@@ -1,9 +1,0 @@
-package co.edu.uco.deviuco.usuarios.application.secondaryports.repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
-@Repository
-public interface TipoIdentificacionRepository extends JpaRepository<TipoIdentificacionEntity, UUID>, TipoIentificacionRepositoryCustom {
-
-}

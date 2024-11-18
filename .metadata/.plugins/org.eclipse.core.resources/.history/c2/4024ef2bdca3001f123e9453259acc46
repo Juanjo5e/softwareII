@@ -1,0 +1,33 @@
+package co.edu.uco.deviuco.usuarios.application.usecase.sede.impl;
+
+import java.util.List;
+
+
+import co.edu.uco.deviuco.usuarios.application.secondaryports.mapper.TipoIdentificacionEntityMapper;
+import co.edu.uco.deviuco.usuarios.application.secondaryports.repository.tipoidentificacion.TipoIdentificacionRepository;
+import co.edu.uco.deviuco.usuarios.application.usecase.tipoidentificacion.RetrieveTipoIdentificacion;
+import co.edu.uco.deviuco.usuarios.domain.tipoidentificacion.TipoIdentificacionDomain;
+import org.springframework.stereotype.Service;
+@Service
+public class RetrieveSedeImpl implements RetrieveSede{
+	
+	private SedeRepository sedeRepository;
+	
+    public RetrieveSedeImpl(final TipoIdentificacionRepository tipoIdentificacionRepository) {
+        this.sedeRepository = sedeRepository;
+    }
+
+	@Override
+	public List<SedeDomain> execute(SedeDomain domain) {
+		var sedeEntity = SedeEntityMapper.INSTANCE.domainToEntity(domain);
+		var resultadosEntity = sedeRepository.findByfilter(sedeEntity);
+		return SedeEntityMapper.INSTANCE.entityToDomainCollection(resultadosEntity);
+	}
+
+	@Override
+	public List<SedeDomain> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

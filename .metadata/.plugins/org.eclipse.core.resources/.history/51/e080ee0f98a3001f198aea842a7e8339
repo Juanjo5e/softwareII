@@ -1,0 +1,73 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.dto.sede;
+
+import java.util.UUID;
+
+import co.edu.uco.deviuco.usuarios.crosscutting.helpers.TextHelper;
+import co.edu.uco.deviuco.usuarios.crosscutting.helpers.UUIDHelper;
+
+public class SedeDTO {
+	private UUID id;
+	private String nombre;
+	private String tipoSede;
+	private String ciudad;
+	
+	
+	public SedeDTO() {
+		setId(UUIDHelper.getDefault());
+		setNombre(TextHelper.EMPTY);
+		setCiudad(TextHelper.EMPTY);
+		setTipoSede(TextHelper.EMPTY);
+	}
+	
+	
+	
+	public SedeDTO(UUID id, String nombre) {
+		setId(id);
+		setNombre(nombre);
+		setCiudad(ciudad);
+		setTipoSede(tipoSede);
+	}
+	
+	public static SedeDTO create () {
+		return new SedeDTO();
+		
+	}
+	public static SedeDTO create(UUID id, String nombre) {
+		return new SedeDTO(id, nombre);
+		
+	}
+	public UUID getId() {
+		return id;
+	}
+
+	public void setId(UUID id) {
+		this.id = UUIDHelper.getDefault(id, UUIDHelper.getDefault());
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = TextHelper.applyTrim(nombre);
+	}
+	public String getCiudad() {
+		return ciudad;
+	}
+
+	public void setCiudad(String ciudad) {
+		this.ciudad = TextHelper.applyTrim(ciudad);
+	}
+	public String getTipoSede() {
+		return tipoSede;
+	}
+
+	public void setTipoSede(String tipoSede) {
+		this.tipoSede = TextHelper.applyTrim(tipoSede);
+	}
+
+
+
+	
+
+}

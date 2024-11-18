@@ -1,0 +1,17 @@
+package co.edu.uco.deviuco.usuarios.domain.afiliado.exceptions;
+
+import co.edu.uco.deviuco.usuarios.crosscutting.exception.RuleDeviUcoException;
+
+public class AfiliadoCorreoYaExisteException extends RuleDeviUcoException {
+
+    private static final long serialVersionUID = 1L;
+
+    public AfiliadoCorreoYaExisteException(String userMessage) {
+        super(userMessage, userMessage, new Exception());
+    }
+
+    public static final AfiliadoCorreoYaExisteException create() {
+        var userMessage = "El correo ya está registrado en el sistema.";
+        return new AfiliadoCorreoYaExisteException(userMessage);
+    }
+}

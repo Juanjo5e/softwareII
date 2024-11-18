@@ -1,0 +1,78 @@
+package co.edu.uco.deviuco.usuarios.application.secondaryports.mapper;
+
+import co.edu.uco.deviuco.usuarios.application.secondaryports.entity.TipoIdentificacionEntity;
+import co.edu.uco.deviuco.usuarios.domain.tipoidentificacion.TipoIdentificacionDomain;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import javax.annotation.processing.Generated;
+
+@Generated(
+    value = "org.mapstruct.ap.MappingProcessor",
+    date = "2024-11-13T15:33:52-0500",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.40.0.z20241023-1306, environment: Java 17.0.13 (Eclipse Adoptium)"
+)
+public class TipoIdentificacionEntityMapperImpl implements TipoIdentificacionEntityMapper {
+
+    @Override
+    public TipoIdentificacionDomain entityToDomain(TipoIdentificacionEntity entity) {
+        if ( entity == null ) {
+            return null;
+        }
+
+        UUID id = null;
+        String nombre = null;
+
+        id = entity.getId();
+        nombre = entity.getNombre();
+
+        TipoIdentificacionDomain tipoIdentificacionDomain = new TipoIdentificacionDomain( id, nombre );
+
+        return tipoIdentificacionDomain;
+    }
+
+    @Override
+    public TipoIdentificacionEntity domainToEntity(TipoIdentificacionDomain domain) {
+        if ( domain == null ) {
+            return null;
+        }
+
+        UUID id = null;
+        String nombre = null;
+
+        id = domain.getId();
+        nombre = domain.getNombre();
+
+        TipoIdentificacionEntity tipoIdentificacionEntity = new TipoIdentificacionEntity( id, nombre );
+
+        return tipoIdentificacionEntity;
+    }
+
+    @Override
+    public List<TipoIdentificacionEntity> domainToEntityCollection(List<TipoIdentificacionDomain> domainCollection) {
+        if ( domainCollection == null ) {
+            return null;
+        }
+
+        List<TipoIdentificacionEntity> list = new ArrayList<TipoIdentificacionEntity>( domainCollection.size() );
+        for ( TipoIdentificacionDomain tipoIdentificacionDomain : domainCollection ) {
+            list.add( domainToEntity( tipoIdentificacionDomain ) );
+        }
+
+        return list;
+    }
+
+    @Override
+    public List<TipoIdentificacionDomain> entityToDomainCollection(List<TipoIdentificacionEntity> entityCollection) {
+        if ( entityCollection == null ) {
+            return null;
+        }
+
+        List<TipoIdentificacionDomain> list = new ArrayList<TipoIdentificacionDomain>( entityCollection.size() );
+        for ( TipoIdentificacionEntity tipoIdentificacionEntity : entityCollection ) {
+            list.add( entityToDomain( tipoIdentificacionEntity ) );
+        }
+
+        return list;
+    }
+}

@@ -1,0 +1,132 @@
+package co.edu.uco.deviuco.usuarios.application.secondaryports.mapper;
+
+import co.edu.uco.deviuco.usuarios.application.secondaryports.entity.AfiliadoEntity;
+import co.edu.uco.deviuco.usuarios.application.secondaryports.entity.TipoIdentificacionEntity;
+import co.edu.uco.deviuco.usuarios.domain.afiliado.AfiliadoDomain;
+import co.edu.uco.deviuco.usuarios.domain.tipoidentificacion.TipoIdentificacionDomain;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import javax.annotation.processing.Generated;
+
+@Generated(
+    value = "org.mapstruct.ap.MappingProcessor",
+    date = "2024-11-13T15:33:52-0500",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.40.0.z20241023-1306, environment: Java 17.0.13 (Eclipse Adoptium)"
+)
+public class AfiliadoEntityMapperImpl implements AfiliadoEntityMapper {
+
+    @Override
+    public AfiliadoDomain entityToDomain(AfiliadoEntity entity) {
+        if ( entity == null ) {
+            return null;
+        }
+
+        UUID id = null;
+        String numeroIdAfiliado = null;
+        String nombre = null;
+        String correo = null;
+        String telefono = null;
+        String pin = null;
+        TipoIdentificacionDomain tipoIdentificacion = null;
+
+        id = entity.getId();
+        numeroIdAfiliado = entity.getNumeroIdAfiliado();
+        nombre = entity.getNombre();
+        correo = entity.getCorreo();
+        telefono = entity.getTelefono();
+        pin = entity.getPin();
+        tipoIdentificacion = tipoIdentificacionEntityToTipoIdentificacionDomain( entity.getTipoIdentificacion() );
+
+        AfiliadoDomain afiliadoDomain = new AfiliadoDomain( id, numeroIdAfiliado, nombre, correo, telefono, pin, tipoIdentificacion );
+
+        return afiliadoDomain;
+    }
+
+    @Override
+    public AfiliadoEntity domainToEntity(AfiliadoDomain domain) {
+        if ( domain == null ) {
+            return null;
+        }
+
+        UUID id = null;
+        String numeroIdAfiliado = null;
+        String nombre = null;
+        String correo = null;
+        String telefono = null;
+        String pin = null;
+        TipoIdentificacionEntity tipoIdentificacion = null;
+
+        id = domain.getId();
+        numeroIdAfiliado = domain.getNumeroIdAfiliado();
+        nombre = domain.getNombre();
+        correo = domain.getCorreo();
+        telefono = domain.getTelefono();
+        pin = domain.getPin();
+        tipoIdentificacion = tipoIdentificacionDomainToTipoIdentificacionEntity( domain.getTipoIdentificacion() );
+
+        AfiliadoEntity afiliadoEntity = new AfiliadoEntity( id, numeroIdAfiliado, nombre, correo, telefono, pin, tipoIdentificacion );
+
+        return afiliadoEntity;
+    }
+
+    @Override
+    public List<AfiliadoEntity> domainToEntityCollection(List<AfiliadoDomain> domainCollection) {
+        if ( domainCollection == null ) {
+            return null;
+        }
+
+        List<AfiliadoEntity> list = new ArrayList<AfiliadoEntity>( domainCollection.size() );
+        for ( AfiliadoDomain afiliadoDomain : domainCollection ) {
+            list.add( domainToEntity( afiliadoDomain ) );
+        }
+
+        return list;
+    }
+
+    @Override
+    public List<AfiliadoDomain> entityToDomainCollection(List<AfiliadoEntity> entityCollection) {
+        if ( entityCollection == null ) {
+            return null;
+        }
+
+        List<AfiliadoDomain> list = new ArrayList<AfiliadoDomain>( entityCollection.size() );
+        for ( AfiliadoEntity afiliadoEntity : entityCollection ) {
+            list.add( entityToDomain( afiliadoEntity ) );
+        }
+
+        return list;
+    }
+
+    protected TipoIdentificacionDomain tipoIdentificacionEntityToTipoIdentificacionDomain(TipoIdentificacionEntity tipoIdentificacionEntity) {
+        if ( tipoIdentificacionEntity == null ) {
+            return null;
+        }
+
+        UUID id = null;
+        String nombre = null;
+
+        id = tipoIdentificacionEntity.getId();
+        nombre = tipoIdentificacionEntity.getNombre();
+
+        TipoIdentificacionDomain tipoIdentificacionDomain = new TipoIdentificacionDomain( id, nombre );
+
+        return tipoIdentificacionDomain;
+    }
+
+    protected TipoIdentificacionEntity tipoIdentificacionDomainToTipoIdentificacionEntity(TipoIdentificacionDomain tipoIdentificacionDomain) {
+        if ( tipoIdentificacionDomain == null ) {
+            return null;
+        }
+
+        UUID id = null;
+        String nombre = null;
+
+        id = tipoIdentificacionDomain.getId();
+        nombre = tipoIdentificacionDomain.getNombre();
+
+        TipoIdentificacionEntity tipoIdentificacionEntity = new TipoIdentificacionEntity( id, nombre );
+
+        return tipoIdentificacionEntity;
+    }
+}

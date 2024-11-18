@@ -1,0 +1,9 @@
+package co.edu.uco.deviuco.usuarios.application.usecase.sede;
+
+import co.edu.uco.deviuco.usuarios.application.usecase.UseCaseWhitOutReturn;
+import co.edu.uco.deviuco.usuarios.domain.sede.SedeDomain;
+import co.edu.uco.deviuco.usuarios.domain.ubicacion.UbicacionDomain;
+
+public interface RegisterNewSede extends UseCaseWhitOutReturn<SedeDomain>{
+
+}

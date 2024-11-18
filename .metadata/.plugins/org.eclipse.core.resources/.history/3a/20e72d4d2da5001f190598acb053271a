@@ -1,0 +1,17 @@
+package co.edu.uco.deviuco.usuarios.domain.tipoubicacion.exceptions;
+
+import co.edu.uco.deviuco.usuarios.crosscutting.exception.RuleDeviUcoException;
+
+public class TipoUbicacionIdIsNullException extends RuleDeviUcoException {
+
+    private static final long serialVersionUID = 1L;
+
+    public TipoUbicacionIdIsNullException(String userMessage) {
+        super(userMessage, userMessage, new Exception());
+    }
+
+    public static final TipoUbicacionIdIsNullException create() {
+        var userMessage = "El ID del tipo de ubicación no puede ser nulo.";
+        return new TipoUbicacionIdIsNullException(userMessage);
+    }
+}

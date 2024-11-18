@@ -1,0 +1,17 @@
+package co.edu.uco.deviuco.usuarios.domain.afiliado.exceptions;
+
+import co.edu.uco.deviuco.usuarios.crosscutting.exception.RuleDeviUcoException;
+
+public class AfiliadoTelefonoEsNuloException extends RuleDeviUcoException {
+
+    private static final long serialVersionUID = 1L;
+
+    public AfiliadoTelefonoEsNuloException(String userMessage) {
+        super(userMessage, userMessage, new Exception());
+    }
+
+    public static final AfiliadoTelefonoEsNuloException create() {
+        var userMessage = "El teléfono del afiliado no puede ser nulo o vacío.";
+        return new AfiliadoTelefonoEsNuloException(userMessage);
+    }
+}

@@ -1,0 +1,9 @@
+package co.edu.uco.deviuco.usuarios.domain.ubicacion.rules;
+
+
+import co.edu.uco.ucobet.generales.domain.DomainRule;
+import co.edu.uco.ucobet.generales.domain.state.StateDomain;
+
+public interface UbicacionSedeDoesExistsRule extends DomainRule<StateDomain>{
+
+}

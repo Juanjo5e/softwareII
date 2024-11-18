@@ -1,0 +1,114 @@
+package co.edu.uco.deviuco.usuarios.application.primaryports.mapper;
+
+import co.edu.uco.deviuco.usuarios.application.primaryports.dto.RetrieveSedeDTO;
+import co.edu.uco.deviuco.usuarios.application.primaryports.dto.SedeDTO;
+import co.edu.uco.deviuco.usuarios.domain.ciudad.CiudadDomain;
+import co.edu.uco.deviuco.usuarios.domain.departamento.DepartamentoDomain;
+import co.edu.uco.deviuco.usuarios.domain.institucion.InstitucionDomain;
+import co.edu.uco.deviuco.usuarios.domain.sede.SedeDomain;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+import javax.annotation.processing.Generated;
+
+@Generated(
+    value = "org.mapstruct.ap.MappingProcessor",
+    date = "2024-11-16T19:59:52-0500",
+    comments = "version: 1.5.5.Final, compiler: Eclipse JDT (IDE) 3.40.0.z20241023-1306, environment: Java 17.0.13 (Eclipse Adoptium)"
+)
+public class SedeDtoMapperImpl implements SedeDtoMapper {
+
+    @Override
+    public SedeDomain dtoToDomain(RetrieveSedeDTO dto) {
+        if ( dto == null ) {
+            return null;
+        }
+
+        UUID id = null;
+        String nombre = null;
+        CiudadDomain country = null;
+
+        id = dto.getId();
+        nombre = dto.getNombre();
+        country = sedeDTOToCiudadDomain( dto.getCountry() );
+
+        InstitucionDomain intitucion = null;
+
+        SedeDomain sedeDomain = new SedeDomain( id, nombre, country, intitucion );
+
+        return sedeDomain;
+    }
+
+    @Override
+    public RetrieveSedeDTO domainToDto(SedeDomain domain) {
+        if ( domain == null ) {
+            return null;
+        }
+
+        RetrieveSedeDTO retrieveSedeDTO = new RetrieveSedeDTO();
+
+        retrieveSedeDTO.setId( domain.getId() );
+        retrieveSedeDTO.setCiudad( ciudadDomainToSedeDTO( domain.getCiudad() ) );
+
+        return retrieveSedeDTO;
+    }
+
+    @Override
+    public List<RetrieveSedeDTO> domainToDtoCollection(List<SedeDomain> domainCollection) {
+        if ( domainCollection == null ) {
+            return null;
+        }
+
+        List<RetrieveSedeDTO> list = new ArrayList<RetrieveSedeDTO>( domainCollection.size() );
+        for ( SedeDomain sedeDomain : domainCollection ) {
+            list.add( domainToDto( sedeDomain ) );
+        }
+
+        return list;
+    }
+
+    @Override
+    public List<SedeDomain> dtoToDomainCollection(List<RetrieveSedeDTO> entityCollection) {
+        if ( entityCollection == null ) {
+            return null;
+        }
+
+        List<SedeDomain> list = new ArrayList<SedeDomain>( entityCollection.size() );
+        for ( RetrieveSedeDTO retrieveSedeDTO : entityCollection ) {
+            list.add( dtoToDomain( retrieveSedeDTO ) );
+        }
+
+        return list;
+    }
+
+    protected CiudadDomain sedeDTOToCiudadDomain(SedeDTO sedeDTO) {
+        if ( sedeDTO == null ) {
+            return null;
+        }
+
+        UUID id = null;
+        String nombre = null;
+
+        id = sedeDTO.getId();
+        nombre = sedeDTO.getNombre();
+
+        DepartamentoDomain departamento = null;
+
+        CiudadDomain ciudadDomain = new CiudadDomain( id, nombre, departamento );
+
+        return ciudadDomain;
+    }
+
+    protected SedeDTO ciudadDomainToSedeDTO(CiudadDomain ciudadDomain) {
+        if ( ciudadDomain == null ) {
+            return null;
+        }
+
+        SedeDTO sedeDTO = new SedeDTO();
+
+        sedeDTO.setId( ciudadDomain.getId() );
+        sedeDTO.setNombre( ciudadDomain.getNombre() );
+
+        return sedeDTO;
+    }
+}
