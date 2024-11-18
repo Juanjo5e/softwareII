@@ -14,7 +14,7 @@ import co.edu.uco.deviuco.usuarios.infrastructure.primaryadapters.controller.res
 
 @RestController
 @RequestMapping("/general/api/v1/sede")
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "https://localhost:8080")
 public class RetrieveSedeController {
 	
 	private RetrieveSedeInteractor retrieveSedeInteractor;

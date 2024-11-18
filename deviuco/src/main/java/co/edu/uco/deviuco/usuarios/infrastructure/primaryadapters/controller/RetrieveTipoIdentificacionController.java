@@ -15,7 +15,7 @@ import co.edu.uco.deviuco.usuarios.infrastructure.primaryadapters.controller.res
 
 @RestController
 @RequestMapping("/general/api/v1/tipoIdentificacion")
-@CrossOrigin(origins = "http://127.0.0.1:5500")
+@CrossOrigin(origins = "https://localhost:8080")
 public class RetrieveTipoIdentificacionController {
 	
 	private RetrieveTipoIdentificacionInteractor retrieveTipoIdentificacionInteractor;

@@ -16,7 +16,7 @@ import co.edu.uco.deviuco.usuarios.infrastructure.secondaryports.MessageService;
 
 @RestController
 @RequestMapping("/general/api/v1/usuarios")
-@CrossOrigin(origins = "http://localhost:5500")
+@CrossOrigin(origins = "https://localhost:5173")
 public class UpdateAfiliadoController {
 
     private final UpdateAfiliadoInteractor updateAfiliadoInteractor;

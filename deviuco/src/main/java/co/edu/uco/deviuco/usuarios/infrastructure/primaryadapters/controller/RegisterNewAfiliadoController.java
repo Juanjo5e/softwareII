@@ -20,7 +20,7 @@ import co.edu.uco.deviuco.usuarios.infrastructure.secondaryports.MessageService;
 
 @RestController
 @RequestMapping("/general/api/v1/usuarios")
-@CrossOrigin(origins = "http://127.0.0.1:5500")
+@CrossOrigin(origins = "https://localhost:5173")
 public class RegisterNewAfiliadoController {
 
 	private final RegisterNewAfiliadoInteractor registerNewAfiliadoInteractor;
