@@ -16,7 +16,7 @@ import co.edu.uco.deviuco.usuarios.infrastructure.secondaryports.MessageService;
 
 @RestController
 @RequestMapping("/general/api/v1/usuarios")
-@CrossOrigin(origins = "https://localhost:5173")
+@CrossOrigin(origins = "https://localhost:8080")
 public class DeleteAfiliadoController {
 
     private final DeleteAfiliadoInteractor deleteAfiliadoInteractor;
